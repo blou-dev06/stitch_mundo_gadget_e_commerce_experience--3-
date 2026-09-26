@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Catálogo de Productos - MUNDO GADGET</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1c1b1b",
+                        "tertiary-container": "#5663a5",
+                        "accent-gradient-start": "#6C4DDB",
+                        "surface-white": "#F8F8FA",
+                        "primary": "#5330c1",
+                        "on-secondary-fixed": "#1d0061",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#cbbeff",
+                        "error": "#ba1a1a",
+                        "glass-stroke": "rgba(255, 255, 255, 0.4)",
+                        "inverse-surface": "#313030",
+                        "on-primary-fixed": "#1d0061",
+                        "secondary-fixed": "#e7deff",
+                        "secondary-fixed-dim": "#cbbeff",
+                        "primary-fixed": "#e7deff",
+                        "on-primary-fixed-variant": "#4b24b9",
+                        "on-secondary-fixed-variant": "#4b22bc",
+                        "surface": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface-variant": "#484554",
+                        "primary-fixed-dim": "#cbbeff",
+                        "on-secondary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ebe3ff",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-high": "#eae7e7",
+                        "outline-variant": "#cac4d6",
+                        "primary-container": "#6c4ddb",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b9c3ff",
+                        "secondary": "#603fd2",
+                        "on-primary": "#ffffff",
+                        "accent-gradient-end": "#AAB7FF",
+                        "outline": "#797585",
+                        "surface-tint": "#6343d1",
+                        "on-tertiary-fixed-variant": "#354281",
+                        "on-tertiary-fixed": "#021355",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed": "#dee1ff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container": "#f0edec",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary": "#3e4b8b",
+                        "surface-gray": "#ECECF1",
+                        "on-tertiary-container": "#e3e5ff",
+                        "secondary-container": "#7a5bec"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-gap": "80px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "stack-md": "16px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "headline-xl": ["Sora", "sans-serif"],
+                        "display-lg": ["Sora", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "button": ["Sora", "sans-serif"],
+                        "headline-lg": ["Sora", "sans-serif"],
+                        "label-sm": ["JetBrains Mono", "monospace"],
+                        "headline-xl-mobile": ["Sora", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fcf9f8;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .bg-aurora {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, rgba(108,77,219,0.14) 0%, rgba(252,249,248,0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bg-aurora-2 {
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(86,99,165,0.12) 0%, rgba(252,249,248,0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glass-card {
+            background: rgba(248, 248, 250, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(83, 48, 193, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-hover:hover {
+            background: rgba(248, 248, 250, 0.85);
+            border-color: rgba(108, 77, 219, 0.4);
+            box-shadow: 0 16px 40px 0 rgba(83, 48, 193, 0.12);
+            transform: translateY(-5px);
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 0.375rem;
+            border: 1.5px solid #cac4d6;
+            background-color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .custom-checkbox:checked {
+            background-color: #6C4DDB;
+            border-color: #6C4DDB;
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .custom-range {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #e5e2e1;
+            border-radius: 999px;
+            outline: none;
+            transition: background 0.2s;
+        }
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #5330c1;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(83, 48, 193, 0.4);
+            border: 2px solid #ffffff;
+            transition: transform 0.15s, background-color 0.15s;
+        }
+        .custom-range::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #6C4DDB;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        .material-symbols-outlined.fill-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col">
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-2"></div>
+
+    <!-- TopNavBar -->
+    <nav class="bg-surface-white/70 backdrop-blur-xl rounded-full mt-4 mx-auto w-11/12 max-w-7xl sticky top-4 border border-glass-stroke shadow-lg shadow-primary/10 flex justify-between items-center px-6 md:px-8 py-3 w-full z-50 transition-all">
+        <a href="#" onclick="resetAllFilters(event)" class="font-display-lg text-headline-lg text-[22px] md:text-headline-lg tracking-tighter text-on-background flex-shrink-0 flex items-center gap-2 group">
+            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-accent-gradient-start to-accent-gradient-end flex items-center justify-center text-white shadow-md shadow-primary/20 group-hover:rotate-12 transition-transform">
+                <span class="material-symbols-outlined text-[18px]">bolt</span>
+            </span>
+            <span>MUNDO GADGET</span>
+        </a>
+
+        <!-- Category Links in Top Nav -->
+        <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <button onclick="handleNavCategory('todos')" class="nav-cat-btn px-3 py-1.5 rounded-full font-button text-[13px] text-primary font-bold border-b-2 border-primary transition-all">
+                Inicio / Todos
+            </button>
+            <button onclick="handleNavCategory('Wearables')" class="nav-cat-btn px-3 py-1.5 rounded-full font-button text-[13px] text-on-surface-variant hover:text-primary transition-all">
+                Wearables
+            </button>
+            <button onclick="handleNavCategory('Smart Home')" class="nav-cat-btn px-3 py-1.5 rounded-full font-button text-[13px] text-on-surface-variant hover:text-primary transition-all">
+                Smart Home
+            </button>
+            <button onclick="handleNavCategory('Audio')" class="nav-cat-btn px-3 py-1.5 rounded-full font-button text-[13px] text-on-surface-variant hover:text-primary transition-all">
+                Audio
+            </button>
+            <button onclick="handleQuickFilter('ofertas')" class="nav-cat-btn px-3 py-1.5 rounded-full font-button text-[13px] text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Ofertas</span>
+            </button>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <!-- Search Toggle Box -->
+            <div class="relative flex items-center">
+                <div id="search-container" class="hidden md:flex items-center bg-white/70 border border-glass-stroke rounded-full px-3 py-1.5 shadow-sm transition-all focus-within:ring-2 focus-within:ring-primary/40 focus-within:bg-white w-44 lg:w-56">
+                    <span class="material-symbols-outlined text-[18px] text-outline mr-2">search</span>
+                    <input id="search-input" type="text" placeholder="Buscar gadgets..." class="w-full bg-transparent text-sm border-none p-0 focus:outline-none focus:ring-0 text-on-surface placeholder:text-outline font-body-md" oninput="handleSearch(this.value)">
+                    <button id="search-clear-btn" onclick="clearSearch()" class="hidden text-outline hover:text-primary ml-1">
+                        <span class="material-symbols-outlined text-[16px]">close</span>
+                    </button>
+                </div>
+                <button onclick="toggleMobileSearch()" class="md:hidden text-on-surface-variant hover:text-primary p-2 transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">search</span>
+                </button>
+            </div>
+
+            <!-- Wishlist Counter/Button -->
+            <button onclick="filterWishlistOnly()" title="Ver favoritos" class="relative text-on-surface-variant hover:text-primary p-2 transition-colors scale-95 active:scale-90">
+                <span class="material-symbols-outlined text-[24px]" id="nav-wishlist-icon">favorite</span>
+                <span id="wishlist-badge" class="hidden absolute top-1 right-1 bg-error text-white font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
+
+            <!-- Cart Trigger Button -->
+            <button onclick="toggleCartDrawer()" class="relative text-on-surface-variant hover:text-primary p-2 transition-colors scale-95 active:scale-90" title="Ver carrito">
+                <span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+                <span id="cart-counter-badge" class="absolute top-1 right-1 bg-primary text-white font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold shadow-md shadow-primary/30 transition-transform">0</span>
+            </button>
+
+            <button onclick="handleQuickFilter('ofertas')" class="hidden sm:inline-flex bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-on-primary font-button text-[12px] px-5 py-2 rounded-full hover:shadow-lg hover:shadow-primary/30 scale-95 active:scale-90 transition-all uppercase tracking-wider">
+                Ver ofertas
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Search Bar (Collapsible) -->
+    <div id="mobile-search-bar" class="hidden px-margin-mobile pt-3 pb-1 md:hidden">
+        <div class="glass-card rounded-full px-4 py-2 flex items-center border-glass-stroke shadow-sm">
+            <span class="material-symbols-outlined text-outline mr-2 text-[20px]">search</span>
+            <input id="mobile-search-input" type="text" placeholder="Buscar por nombre o especificación..." class="w-full bg-transparent text-sm border-none p-0 focus:outline-none focus:ring-0 text-on-surface" oninput="handleSearch(this.value)">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg mt-4">
+        
+        <!-- Header & Top Controls -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span id="active-category-pill" class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[11px] uppercase tracking-wider">
+                        Catálogo Completo
+                    </span>
+                    <span id="active-filter-indicator" class="hidden text-outline text-xs font-label-sm">• Filtrado activo</span>
+                </div>
+                <h1 id="page-title" class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-1">Gadgets</h1>
+                <p id="page-subtitle" class="font-body-md text-sm md:text-base text-on-surface-variant">
+                    Mostrando <span id="results-count" class="font-bold text-primary">24</span> resultados para Gadgets
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <label class="font-label-sm text-label-sm text-on-surface-variant uppercase whitespace-nowrap" for="sort">Ordenar por:</label>
+                    <div class="relative">
+                        <select id="sort" onchange="handleSortChange(this.value)" class="glass-card rounded-full pl-4 pr-10 py-2 text-button font-button text-on-surface border-glass-stroke focus:ring-2 focus:ring-primary focus:border-primary appearance-none bg-transparent cursor-pointer">
+                            <option value="recent">Más recientes</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="popular">Popularidad</option>
+                        </select>
+                        <span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-[18px] text-outline">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Category Specification Chips (Updated dynamically when selecting category) -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-[11px] text-outline uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+                    Especificaciones destacadas
+                </span>
+                <span id="spec-chip-hint" class="text-xs font-body-md text-on-surface-variant hidden sm:inline">Haz clic para filtrar por tecnología</span>
+            </div>
+            <div id="dynamic-spec-chips" class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+                <!-- Injected via JS based on active category -->
+            </div>
+        </div>
+
+        <!-- Active Filter Badges Bar (Removable) -->
+        <div id="active-badges-container" class="hidden flex flex-wrap items-center gap-2 mb-6 p-3 rounded-2xl glass-card border-glass-stroke">
+            <span class="font-label-sm text-[11px] text-on-surface-variant uppercase mr-1">Filtros aplicados:</span>
+            <div id="active-badges-list" class="flex flex-wrap items-center gap-2">
+                <!-- Badges injected here -->
+            </div>
+            <button onclick="resetAllFilters(event)" class="ml-auto text-xs font-button text-primary hover:underline flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">refresh</span>
+                Limpiar todo
+            </button>
+        </div>
+
+        <!-- Main Layout: Sidebar Filters + Product Grid -->
+        <div class="flex flex-col lg:flex-row gap-gutter">
+            
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-64 flex-shrink-0">
+                <div class="glass-card rounded-xl p-6 sticky top-28">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-headline-lg text-[20px] text-on-surface">Filtros</h3>
+                        <button onclick="resetAllFilters(event)" class="text-xs font-label-sm text-outline hover:text-primary transition-colors flex items-center gap-0.5" title="Restablecer">
+                            <span class="material-symbols-outlined text-[15px]">restart_alt</span>
+                            Restablecer
+                        </button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-button text-button text-on-surface">Categoría</h4>
+                            <span id="cat-indicator-count" class="font-label-sm text-[11px] text-outline">3 disp.</span>
+                        </div>
+                        <div class="space-y-2.5">
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="cat-wearables" type="checkbox" value="Wearables" onchange="handleCategoryFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Wearables</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-cat-wearables">8</span>
+                            </label>
+                            
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="cat-smarthome" type="checkbox" value="Smart Home" onchange="handleCategoryFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Smart Home</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-cat-smarthome">12</span>
+                            </label>
+
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="cat-audio" type="checkbox" value="Audio" onchange="handleCategoryFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Audio</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-cat-audio">4</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr class="border-outline-variant/30 my-6">
+
+                    <!-- Price Filter -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-button text-button text-on-surface">Precio</h4>
+                            <span id="price-display-badge" class="font-label-sm text-[12px] font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+                                Hasta $1,000
+                            </span>
+                        </div>
+                        <p class="font-body-md text-xs text-on-surface-variant mb-4">Ajusta el rango de presupuesto máximo:</p>
+                        
+                        <div class="space-y-3">
+                            <input id="price-slider" class="custom-range" max="1000" min="40" step="10" value="1000" type="range" oninput="handlePriceSlider(this.value)">
+                            <div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+                                <span>$40</span>
+                                <span id="price-current-label" class="font-bold text-primary">$1,000</span>
+                                <span>$1,000+</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Price Selector Pills -->
+                        <div class="grid grid-cols-3 gap-1.5 mt-4">
+                            <button onclick="setPriceShortcut(200)" class="price-chip py-1 text-center rounded-lg border border-outline-variant/40 text-[11px] font-label-sm text-on-surface-variant hover:border-primary hover:text-primary hover:bg-white transition-all">
+                                &lt; $200
+                            </button>
+                            <button onclick="setPriceShortcut(500)" class="price-chip py-1 text-center rounded-lg border border-outline-variant/40 text-[11px] font-label-sm text-on-surface-variant hover:border-primary hover:text-primary hover:bg-white transition-all">
+                                &lt; $500
+                            </button>
+                            <button onclick="setPriceShortcut(1000)" class="price-chip py-1 text-center rounded-lg border border-outline-variant/40 text-[11px] font-label-sm text-on-surface-variant hover:border-primary hover:text-primary hover:bg-white transition-all">
+                                Todos
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="border-outline-variant/30 my-6">
+
+                    <!-- Brand Filter -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-button text-button text-on-surface">Marca</h4>
+                            <span class="font-label-sm text-[11px] text-outline">3 marcas</span>
+                        </div>
+                        <div class="space-y-2.5">
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="brand-nexus" type="checkbox" value="Nexus" onchange="handleBrandFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Nexus</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-brand-nexus">5</span>
+                            </label>
+
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="brand-auratech" type="checkbox" value="AuraTech" onchange="handleBrandFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">AuraTech</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-brand-auratech">9</span>
+                            </label>
+
+                            <label class="flex items-center justify-between cursor-pointer group">
+                                <div class="flex items-center gap-3">
+                                    <input id="brand-pulse" type="checkbox" value="Pulse" onchange="handleBrandFilterChange()" class="custom-checkbox">
+                                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">Pulse</span>
+                                </div>
+                                <span class="font-label-sm text-xs text-outline bg-surface-container-high px-2 py-0.5 rounded-full" id="count-brand-pulse">10</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Clean Filters Button -->
+                    <button onclick="resetAllFilters(event)" class="w-full py-2.5 rounded-full border border-glass-stroke bg-surface-white/60 font-button text-button text-on-surface hover:bg-white hover:border-primary hover:text-primary hover:shadow-md transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+                        Limpiar filtros
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Product Grid & Pagination Section -->
+            <div class="flex-grow flex flex-col min-w-0">
+                
+                <!-- Product Grid Container -->
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+                    <!-- Products will be rendered dynamically by JavaScript -->
+                </div>
+
+                <!-- Empty State (Hidden by default) -->
+                <div id="empty-state" class="hidden glass-card rounded-2xl p-12 text-center my-6 flex flex-col items-center justify-center">
+                    <div class="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[40px]">tune</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[22px] text-on-surface mb-2">No se encontraron gadgets</h3>
+                    <p class="font-body-md text-sm text-on-surface-variant max-w-md mx-auto mb-6">
+                        No hay productos que coincidan con la combinación actual de filtros de categoría, precio o marca.
+                    </p>
+                    <button onclick="resetAllFilters(event)" class="bg-primary text-white font-button text-button px-6 py-2.5 rounded-full shadow-lg shadow-primary/25 hover:bg-primary-container transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">restart_alt</span>
+                        Restablecer todos los filtros
+                    </button>
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination-container" class="flex justify-center mt-12 mb-8">
+                    <nav class="flex items-center gap-2" id="pagination-controls">
+                        <!-- Injected via JS -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View / Spec Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card bg-surface-white/95 rounded-3xl max-w-2xl w-full p-6 md:p-8 border border-white/80 shadow-2xl relative transform scale-95 transition-transform duration-300 overflow-hidden" id="modal-card">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-gray hover:bg-surface-dim text-on-surface flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center" id="quick-view-content">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide-over Shopping Cart Drawer -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCartDrawer()"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 glass-card bg-surface-white/95 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+        <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+                <h3 class="font-headline-lg text-[20px] text-on-surface">Tu Carrito</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="w-8 h-8 rounded-full bg-surface-gray hover:bg-surface-dim flex items-center justify-center text-on-surface">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+        </div>
+        
+        <div id="cart-items-list" class="flex-grow overflow-y-auto py-4 space-y-3 no-scrollbar">
+            <!-- Items injected by JS -->
+        </div>
+
+        <div class="pt-4 border-t border-outline-variant/30 mt-auto">
+            <div class="flex justify-between items-center mb-3">
+                <span class="font-body-md text-sm text-on-surface-variant">Subtotal estimado:</span>
+                <span id="cart-total-price" class="font-headline-lg text-[22px] text-primary">$0.00</span>
+            </div>
+            <p class="font-label-sm text-[11px] text-outline mb-4">Envío gratis y garantía oficial de 12 meses incluidos.</p>
+            <button onclick="checkoutCart()" class="w-full py-3 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white font-button text-button rounded-full shadow-lg shadow-primary/25 hover:opacity-95 active:scale-95 transition-all uppercase tracking-wider flex items-center justify-center gap-2">
+                <span>Proceder al pago</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification (Floating) -->
+    <div id="toast-message" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none glass-card bg-surface-white/95 px-5 py-3 rounded-2xl shadow-xl border border-primary/30 flex items-center gap-3">
+        <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center" id="toast-icon-wrap">
+            <span class="material-symbols-outlined text-[18px]" id="toast-icon">check_circle</span>
+        </span>
+        <span class="font-button text-[14px] text-on-surface" id="toast-text">Producto añadido al carrito</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface-dim w-full pt-16 pb-8 border-t border-outline-variant/30 mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">MG</span>
+                    <h2 class="font-headline-lg text-[22px] text-on-surface">MUNDO GADGET</h2>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant mb-4">El futuro de la tecnología con diseño Liquid Glass en tus manos.</p>
+                <p class="font-label-sm text-[12px] text-outline">© 2024 MUNDO GADGET. Todos los derechos reservados.</p>
+            </div>
+            <div class="flex flex-col space-y-2.5">
+                <span class="font-button text-xs font-bold uppercase tracking-wider text-on-surface">Categorías</span>
+                <a onclick="handleNavCategory('Wearables'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Wearables</a>
+                <a onclick="handleNavCategory('Smart Home'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Smart Home</a>
+                <a onclick="handleNavCategory('Audio'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Audio</a>
+            </div>
+            <div class="flex flex-col space-y-2.5">
+                <span class="font-button text-xs font-bold uppercase tracking-wider text-on-surface">Marcas Líderes</span>
+                <a onclick="setBrandShortcut('Nexus'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Nexus</a>
+                <a onclick="setBrandShortcut('AuraTech'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">AuraTech</a>
+                <a onclick="setBrandShortcut('Pulse'); return false;" class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Pulse</a>
+            </div>
+            <div class="flex flex-col space-y-2.5">
+                <span class="font-button text-xs font-bold uppercase tracking-wider text-on-surface">Soporte & Legal</span>
+                <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacidad</a>
+                <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Términos y Condiciones</a>
+                <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Garantía Oficial</a>
+                <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contacto 24/7</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic & State Management -->
+    <script>
+        // High fidelity gadget catalog (24 items matching sidebar totals: 8 Wearables, 12 Smart Home, 4 Audio; 5 Nexus, 9 AuraTech, 10 Pulse)
+        const GADGET_PRODUCTS = [
+            // WEARABLES (8 items)
+            {
+                id: 1,
+                name: "Nexus Chrono X",
+                brand: "Nexus",
+                category: "Wearables",
+                price: 299.00,
+                specs: ["OLED", "Biométrico", "Titanio"],
+                badge: "Popular",
+                description: "Smartwatch con pantalla holográfica y sensores biométricos avanzados de pulso y saturación.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy",
+                rating: 4.9,
+                created: 10
+            },
+            {
+                id: 2,
+                name: "Quantum Watch Pro",
+                brand: "AuraTech",
+                category: "Wearables",
+                price: 489.00,
+                specs: ["AMOLED", "GPS Cuántico", "Zafiro"],
+                badge: "HOT",
+                description: "Reloj inteligente de lujo con cristal de zafiro sintético y navegación satelital multicanal.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl",
+                rating: 5.0,
+                created: 9
+            },
+            {
+                id: 3,
+                name: "Pulse BioBand X1",
+                brand: "Pulse",
+                category: "Wearables",
+                price: 149.00,
+                specs: ["Sensor ECG", "Resistente 50m", "7 Días Batería"],
+                badge: "Nuevo",
+                description: "Banda inteligente ultraligera para monitoreo continuo de ritmo cardíaco, estrés y sueño profundo.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy",
+                rating: 4.7,
+                created: 8
+            },
+            {
+                id: 4,
+                name: "Nexus NeuroRing Gen 2",
+                brand: "Nexus",
+                category: "Wearables",
+                price: 219.00,
+                specs: ["Titanio Aero", "NFC Pagos", "Carga Inalámbrica"],
+                badge: "Exclusivo",
+                description: "Anillo inteligente de titanio aeroespacial con pago sin contacto y lectura térmica periférica.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl",
+                rating: 4.8,
+                created: 7
+            },
+            {
+                id: 5,
+                name: "Aura Vision HUD Glasses",
+                brand: "AuraTech",
+                category: "Wearables",
+                price: 699.00,
+                specs: ["Micro-OLED", "Realidad Aumentada", "Audio Óseo"],
+                badge: "Innovación",
+                description: "Gafas inteligentes de realidad aumentada ultraligeras con display holográfico micro-OLED.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy",
+                rating: 4.9,
+                created: 6
+            },
+            {
+                id: 6,
+                name: "Pulse Active Sport Tracker",
+                brand: "Pulse",
+                category: "Wearables",
+                price: 99.00,
+                specs: ["GPS Doble Banda", "VO2 Max", "Gorilla Glass"],
+                badge: "Oferta",
+                description: "Reloj deportivo de alta precisión con métricas de rendimiento atlético y altímetro barométrico.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl",
+                rating: 4.6,
+                created: 5
+            },
+            {
+                id: 7,
+                name: "Aura Skin BioPatch",
+                brand: "AuraTech",
+                category: "Wearables",
+                price: 79.00,
+                specs: ["Bio-Sensor", "Flexible", "Resistente al Agua"],
+                badge: "Médico",
+                description: "Parche dérmico inteligente no invasivo para análisis de hidratación y ácido láctico en tiempo real.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy",
+                rating: 4.5,
+                created: 4
+            },
+            {
+                id: 8,
+                name: "Pulse Horizon Watch Elite",
+                brand: "Pulse",
+                category: "Wearables",
+                price: 349.00,
+                specs: ["Cristal Curvo", "Bisel Cerámica", "Modo Buceo"],
+                badge: "Élite",
+                description: "Edición especial con carcasa de cerámica pulida, pantalla sin bordes y resistencia hasta 100m.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl",
+                rating: 4.9,
+                created: 3
+            },
+
+            // AUDIO (4 items)
+            {
+                id: 9,
+                name: "Aura Buds Pro",
+                brand: "AuraTech",
+                category: "Audio",
+                price: 189.00,
+                specs: ["ANC", "Transparencia", "Audio Espacial"],
+                badge: "Nuevo",
+                description: "Auriculares transparentes con cancelación de ruido activa inteligente y arquitectura acústica dual.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r",
+                rating: 4.9,
+                created: 20
+            },
+            {
+                id: 10,
+                name: "AeroBuds Ultra",
+                brand: "Pulse",
+                category: "Audio",
+                price: 249.00,
+                specs: ["Hi-Res Audio", "Drivers 12mm", "38h Autonomía"],
+                badge: "Best Seller",
+                description: "Auriculares inalámbricos premium con sonido de alta resolución y estuche de carga en cristal líquido.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u",
+                rating: 4.8,
+                created: 19
+            },
+            {
+                id: 11,
+                name: "Pulse Sphere Levitating Speaker",
+                brand: "Pulse",
+                category: "Audio",
+                price: 399.00,
+                specs: ["Levitación Magnética", "Sonido 360°", "Subwoofer Neodimio"],
+                badge: "Top Tech",
+                description: "Altavoz que levita en el aire mediante campo magnético estable, ofreciendo sonido envolvente 360° libre de distorsión.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 5.0,
+                created: 18
+            },
+            {
+                id: 12,
+                name: "Nexus Studio Stream Master",
+                brand: "Nexus",
+                category: "Audio",
+                price: 179.00,
+                specs: ["Micrófono Condensador", "DSP Integrado", "Filtro Pop Óptico"],
+                badge: "Estudio",
+                description: "Micrófono de estudio profesional con cancelación de eco por IA y conmutación de patrones polares.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r",
+                rating: 4.7,
+                created: 17
+            },
+
+            // SMART HOME (12 items)
+            {
+                id: 13,
+                name: "Omni Core Hub",
+                brand: "AuraTech",
+                category: "Smart Home",
+                price: 349.00,
+                specs: ["IA Neural", "Matter / Zigbee", "Reconocimiento Facial"],
+                badge: "Destacado",
+                description: "Centro neurálgico para domótica con IA local predictiva, pantalla esférica y compatibilidad universal.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.9,
+                created: 30
+            },
+            {
+                id: 14,
+                name: "Lumina Beam 4K",
+                brand: "Pulse",
+                category: "Smart Home",
+                price: 599.00,
+                specs: ["Láser 4K", "3000 Lúmenes", "Auto-Keystone"],
+                badge: "Cine",
+                description: "Proyector portátil ultracompacto con óptica láser de alta definición y calibración geométrica instantánea.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.8,
+                created: 29
+            },
+            {
+                id: 15,
+                name: "Aura Glow Ambient Lamp",
+                brand: "AuraTech",
+                category: "Smart Home",
+                price: 129.00,
+                specs: ["RGB Dinámico", "Sincro Musical", "Luz Circadiana"],
+                badge: "Relajación",
+                description: "Lámpara de cristal fluido que reproduce auroras boreales y sincroniza la iluminación con tu ciclo biológico.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.6,
+                created: 28
+            },
+            {
+                id: 16,
+                name: "Pulse Quantum Smart Lock",
+                brand: "Pulse",
+                category: "Smart Home",
+                price: 279.00,
+                specs: ["Biometría 3D", "Cifrado Militar", "Keyless"],
+                badge: "Seguridad",
+                description: "Cerradura inteligente con sensor de huella dactilar capacitivo bajo cristal templado y acceso remoto cifrado.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.8,
+                created: 27
+            },
+            {
+                id: 17,
+                name: "Nexus Climate Sensor Station",
+                brand: "Nexus",
+                category: "Smart Home",
+                price: 89.00,
+                specs: ["Calidad de Aire", "Humedad / Temp", "E-Ink Display"],
+                badge: "Eco",
+                description: "Estación meteorológica interior con pantalla de tinta electrónica y lectura de CO2, COV y partículas PM2.5.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.5,
+                created: 26
+            },
+            {
+                id: 18,
+                name: "Aura Pure Plasma Air",
+                brand: "AuraTech",
+                category: "Smart Home",
+                price: 429.00,
+                specs: ["Filtro HEPA H14", "Ionizador Plasma", "Ultra Silencioso"],
+                badge: "Salud",
+                description: "Purificador de aire cilíndrico de alta eficiencia con ionización por plasma y luz ultravioleta esterilizante.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.9,
+                created: 25
+            },
+            {
+                id: 19,
+                name: "Pulse Thermo Touch Thermostat",
+                brand: "Pulse",
+                category: "Smart Home",
+                price: 199.00,
+                specs: ["Dial Rotatorio Cristal", "Ahorro Energético", "Control Voz"],
+                badge: "Eficiencia",
+                description: "Termostato inteligente con anillo de control de aluminio pulido y aprendizaje automatizado de hábitos térmicos.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.7,
+                created: 24
+            },
+            {
+                id: 20,
+                name: "Aura Cam Sentinel 360",
+                brand: "AuraTech",
+                category: "Smart Home",
+                price: 159.00,
+                specs: ["Visión Nocturna Color", "Detección Humana IA", "Giro 360°"],
+                badge: "Vigilancia",
+                description: "Cámara de vigilancia domótica con movimiento robotizado silencioso, visión infrarroja y seguimiento inteligente.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.8,
+                created: 23
+            },
+            {
+                id: 21,
+                name: "Pulse RoboClean Nano Mop",
+                brand: "Pulse",
+                category: "Smart Home",
+                price: 549.00,
+                specs: ["Mapeo LiDAR", "Autovaciado", "Trapeado Sónico"],
+                badge: "Premium",
+                description: "Robot aspirador y friegasuelos con escaneo láser tridimensional y base de autovaciado de polvo y agua sucia.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.9,
+                created: 22
+            },
+            {
+                id: 22,
+                name: "Nexus HydroPlant Smart Garden",
+                brand: "Nexus",
+                category: "Smart Home",
+                price: 169.00,
+                specs: ["Cultivo Hidropónico", "LED Espectro Completo", "Auto-Riego"],
+                badge: "Bio",
+                description: "Huerto de interior autónomo con luces LED de crecimiento acelerado y sensores de nivel nutricional.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.6,
+                created: 21
+            },
+            {
+                id: 23,
+                name: "Pulse Smart Curtain Driver",
+                brand: "Pulse",
+                category: "Smart Home",
+                price: 69.00,
+                specs: ["Motor Silencioso", "Panel Solar Opcional", "Sensor de Luz"],
+                badge: "Oferta",
+                description: "Motor automatizador para cortinas y rieles con accionamiento programado al amanecer y control por voz.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK",
+                rating: 4.4,
+                created: 12
+            },
+            {
+                id: 24,
+                name: "Aura Smart Plug Duo",
+                brand: "AuraTech",
+                category: "Smart Home",
+                price: 49.00,
+                specs: ["Medidor de Consumo", "Matter Ready", "Protección Sobretensión"],
+                badge: "Básico",
+                description: "Enchufe inteligente dual con reporte de consumo eléctrico en vatios y apagado programado por sobrecalentamiento.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA",
+                rating: 4.5,
+                created: 11
+            }
+        ];
+
+        // State Machine
+        let state = {
+            selectedCategories: [],
+            maxPrice: 1000,
+            selectedBrands: [],
+            selectedSpec: null,
+            searchQuery: "",
+            sortBy: "recent",
+            currentPage: 1,
+            itemsPerPage: 6,
+            wishlist: new Set(),
+            cart: [],
+            onlyWishlist: false,
+            onlyOffers: false
+        };
+
+        // DOM Elements
+        const gridEl = document.getElementById('product-grid');
+        const emptyStateEl = document.getElementById('empty-state');
+        const resultsCountEl = document.getElementById('results-count');
+        const pageTitleEl = document.getElementById('page-title');
+        const pageSubtitleEl = document.getElementById('page-subtitle');
+        const activeCategoryPillEl = document.getElementById('active-category-pill');
+        const priceSliderEl = document.getElementById('price-slider');
+        const priceDisplayBadgeEl = document.getElementById('price-display-badge');
+        const priceCurrentLabelEl = document.getElementById('price-current-label');
+        const specChipsEl = document.getElementById('dynamic-spec-chips');
+        const activeBadgesContainer = document.getElementById('active-badges-container');
+        const activeBadgesList = document.getElementById('active-badges-list');
+        const paginationControlsEl = document.getElementById('pagination-controls');
+        const cartCounterBadgeEl = document.getElementById('cart-counter-badge');
+        const wishlistBadgeEl = document.getElementById('wishlist-badge');
+
+        // Specification tags profile map per category
+        const CATEGORY_SPECS = {
+            "Wearables": ["OLED", "AMOLED", "Biométrico", "GPS Cuántico", "Titanio", "Resistente al Agua", "NFC Pagos"],
+            "Smart Home": ["IA Neural", "Matter / Zigbee", "Láser 4K", "Biometría 3D", "LiDAR", "RGB Dinámico", "Calidad de Aire"],
+            "Audio": ["ANC", "Transparencia", "Hi-Res Audio", "Levitación Magnética", "Audio Espacial", "DSP Integrado"]
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSpecChips();
+            applyFilters();
+            updateSidebarCounts();
+        });
+
+        // 1. FILTERING LOGIC
+        function applyFilters() {
+            let filtered = GADGET_PRODUCTS.filter(product => {
+                // Category filter
+                if (state.selectedCategories.length > 0 && !state.selectedCategories.includes(product.category)) {
+                    return false;
+                }
+
+                // Price filter
+                if (product.price > state.maxPrice) {
+                    return false;
+                }
+
+                // Brand filter
+                if (state.selectedBrands.length > 0 && !state.selectedBrands.includes(product.brand)) {
+                    return false;
+                }
+
+                // Sub-spec chip filter
+                if (state.selectedSpec) {
+                    const hasSpec = product.specs.some(s => s.toLowerCase().includes(state.selectedSpec.toLowerCase()));
+                    if (!hasSpec) return false;
+                }
+
+                // Search query filter
+                if (state.searchQuery.trim() !== "") {
+                    const q = state.searchQuery.toLowerCase();
+                    const matchName = product.name.toLowerCase().includes(q);
+                    const matchDesc = product.description.toLowerCase().includes(q);
+                    const matchBrand = product.brand.toLowerCase().includes(q);
+                    const matchCategory = product.category.toLowerCase().includes(q);
+                    const matchSpecs = product.specs.some(s => s.toLowerCase().includes(q));
+                    if (!matchName && !matchDesc && !matchBrand && !matchCategory && !matchSpecs) {
+                        return false;
+                    }
+                }
+
+                // Only wishlist filter
+                if (state.onlyWishlist && !state.wishlist.has(product.id)) {
+                    return false;
+                }
+
+                // Only offers filter
+                if (state.onlyOffers && product.badge !== "Oferta" && product.badge !== "Popular") {
+                    return false;
+                }
+
+                return true;
+            });
+
+            // Sorting
+            filtered.sort((a, b) => {
+                if (state.sortBy === "price-asc") return a.price - b.price;
+                if (state.sortBy === "price-desc") return b.price - a.price;
+                if (state.sortBy === "popular") return b.rating - a.rating;
+                // Default: recent / id
+                return b.created - a.created;
+            });
+
+            // Update UI Counters & Title
+            updateHeaderAndPills(filtered.length);
+            renderActiveBadges();
+            updateSidebarCounts();
+
+            // Handle Pagination
+            const totalPages = Math.ceil(filtered.length / state.itemsPerPage) || 1;
+            if (state.currentPage > totalPages) state.currentPage = 1;
+
+            const startIndex = (state.currentPage - 1) * state.itemsPerPage;
+            const paginatedItems = filtered.slice(startIndex, startIndex + state.itemsPerPage);
+
+            renderProductGrid(paginatedItems);
+            renderPagination(totalPages);
+        }
+
+        // 2. RENDER PRODUCT GRID
+        function renderProductGrid(products) {
+            if (products.length === 0) {
+                gridEl.innerHTML = "";
+                emptyStateEl.classList.remove('hidden');
+                document.getElementById('pagination-container').classList.add('hidden');
+                return;
+            }
+
+            emptyStateEl.classList.add('hidden');
+            document.getElementById('pagination-container').classList.remove('hidden');
+
+            let html = "";
+            products.forEach(product => {
+                const isFavorite = state.wishlist.has(product.id);
+                const badgeHtml = product.badge ? `
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="px-3 py-1 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white rounded-full font-label-sm text-[10px] uppercase tracking-wider shadow-sm font-semibold">
+                            ${product.badge}
+                        </span>
+                    </div>` : '';
+
+                const specsHtml = product.specs.map(spec => 
+                    `<span class="px-2 py-0.5 bg-surface-variant/60 rounded-full font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider border border-white/60">${spec}</span>`
+                ).join('');
+
+                html += `
+                <div class="glass-card glass-card-hover rounded-2xl p-4 flex flex-col group relative overflow-hidden animate-fade-in" data-id="${product.id}">
+                    ${badgeHtml}
+                    
+                    <div class="absolute top-4 right-4 z-10">
+                        <button onclick="toggleWishlist(${product.id}, this)" class="p-2 bg-surface-white/80 rounded-full backdrop-blur-sm hover:bg-white transition-all shadow-sm active:scale-90" title="Guardar en favoritos">
+                            <span class="material-symbols-outlined text-[20px] ${isFavorite ? 'text-error fill-active' : 'text-outline'}">favorite</span>
+                        </button>
+                    </div>
+
+                    <div onclick="openQuickView(${product.id})" class="h-60 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden cursor-pointer group-hover:bg-primary/5 transition-colors">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-xl"></div>
+                        <img class="object-contain h-4/5 w-4/5 z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" 
+                             src="${product.image}" 
+                             alt="${product.name}" 
+                             loading="lazy">
+                        <div class="absolute bottom-2 bg-surface-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-button text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-[14px]">visibility</span>
+                            Vista rápida
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col flex-grow">
+                        <div class="flex items-center gap-1.5 flex-wrap mb-2">
+                            <span class="px-2 py-0.5 bg-primary/10 text-primary font-bold rounded-full font-label-sm text-[10px] uppercase tracking-wider">
+                                ${product.brand}
+                            </span>
+                            ${specsHtml}
+                        </div>
+
+                        <h3 onclick="openQuickView(${product.id})" class="font-headline-lg text-[18px] text-on-surface mb-1 leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-1">
+                            ${product.name}
+                        </h3>
+                        <p class="font-body-md text-xs text-on-surface-variant mb-4 flex-grow line-clamp-2">
+                            ${product.description}
+                        </p>
+
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-outline-variant/20">
+                            <div>
+                                <span class="font-label-sm text-[11px] text-outline block leading-none">PRECIO</span>
+                                <span class="font-headline-lg text-[22px] font-bold text-primary font-label-sm tracking-tight">$${product.price.toFixed(2)}</span>
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="bg-primary text-on-primary p-3 rounded-full hover:bg-primary-container hover:shadow-lg hover:shadow-primary/30 active:scale-90 transition-all shadow-md shadow-primary/20 flex items-center justify-center" title="Añadir al carrito">
+                                <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+            });
+
+            gridEl.innerHTML = html;
+        }
+
+        // 3. HEADER & CONTROLS UPDATE
+        function updateHeaderAndPills(count) {
+            resultsCountEl.textContent = count;
+
+            if (state.selectedCategories.length === 1) {
+                const cat = state.selectedCategories[0];
+                pageTitleEl.textContent = cat;
+                activeCategoryPillEl.textContent = cat;
+                pageSubtitleEl.innerHTML = `Mostrando <span class="font-bold text-primary">${count}</span> resultados especializados para ${cat}`;
+            } else if (state.selectedCategories.length > 1) {
+                pageTitleEl.textContent = "Categorías Múltiples";
+                activeCategoryPillEl.textContent = `${state.selectedCategories.length} Seleccionadas`;
+                pageSubtitleEl.innerHTML = `Mostrando <span class="font-bold text-primary">${count}</span> resultados combinados`;
+            } else {
+                pageTitleEl.textContent = "Gadgets";
+                activeCategoryPillEl.textContent = "Catálogo Completo";
+                pageSubtitleEl.innerHTML = `Mostrando <span class="font-bold text-primary">${count}</span> resultados para Gadgets`;
+            }
+
+            // Sync Top Nav Button Highlights
+            document.querySelectorAll('.nav-cat-btn').forEach(btn => {
+                const text = btn.textContent.trim();
+                if ((state.selectedCategories.length === 0 && text.includes('Inicio')) ||
+                    (state.selectedCategories.length === 1 && text === state.selectedCategories[0])) {
+                    btn.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                    btn.classList.remove('text-on-surface-variant');
+                } else {
+                    btn.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                    btn.classList.add('text-on-surface-variant');
+                }
+            });
+
+            // Re-render spec chips whenever category set changes
+            renderSpecChips();
+        }
+
+        // 4. DYNAMIC SPECIFICATION CHIPS
+        function renderSpecChips() {
+            let specs = [];
+            if (state.selectedCategories.length === 1) {
+                specs = CATEGORY_SPECS[state.selectedCategories[0]] || [];
+            } else {
+                specs = ["OLED", "ANC", "IA Neural", "Láser 4K", "Biométrico", "Hi-Res Audio", "Matter / Zigbee", "Titanio"];
+            }
+
+            let chipsHtml = `
+                <button onclick="setSpecFilter(null)" class="spec-btn whitespace-nowrap px-4 py-1.5 rounded-full font-label-sm text-[11px] uppercase tracking-wider transition-all ${state.selectedSpec === null ? 'bg-primary text-white shadow-md shadow-primary/20 font-bold' : 'glass-card text-on-surface-variant hover:text-primary hover:border-primary/40'}">
+                    Todos (${GADGET_PRODUCTS.length})
+                </button>
+            `;
+
+            specs.forEach(spec => {
+                const isActive = state.selectedSpec === spec;
+                chipsHtml += `
+                    <button onclick="setSpecFilter('${spec}')" class="spec-btn whitespace-nowrap px-4 py-1.5 rounded-full font-label-sm text-[11px] uppercase tracking-wider transition-all ${isActive ? 'bg-primary text-white shadow-md shadow-primary/20 font-bold' : 'glass-card text-on-surface-variant hover:text-primary hover:border-primary/40'}">
+                        ${spec}
+                    </button>
+                `;
+            });
+
+            specChipsEl.innerHTML = chipsHtml;
+        }
+
+        function setSpecFilter(spec) {
+            state.selectedSpec = (state.selectedSpec === spec) ? null : spec;
+            state.currentPage = 1;
+            applyFilters();
+        }
+
+        // 5. PRICE FILTER HANDLER
+        function handlePriceSlider(val) {
+            state.maxPrice = parseInt(val, 10);
+            priceDisplayBadgeEl.textContent = state.maxPrice >= 1000 ? "Hasta $1,000+" : `Hasta $${state.maxPrice}`;
+            priceCurrentLabelEl.textContent = `$${state.maxPrice}`;
+            state.currentPage = 1;
+            applyFilters();
+        }
+
+        function setPriceShortcut(val) {
+            priceSliderEl.value = val;
+            handlePriceSlider(val);
+        }
+
+        // 6. CATEGORY CHECKBOX HANDLER
+        function handleCategoryFilterChange() {
+            const categories = [];
+            if (document.getElementById('cat-wearables').checked) categories.push('Wearables');
+            if (document.getElementById('cat-smarthome').checked) categories.push('Smart Home');
+            if (document.getElementById('cat-audio').checked) categories.push('Audio');
+
+            state.selectedCategories = categories;
+            state.selectedSpec = null; // Reset sub-spec when category changes
+            state.currentPage = 1;
+            applyFilters();
+        }
+
+        function handleNavCategory(category) {
+            if (category === 'todos') {
+                state.selectedCategories = [];
+            } else {
+                state.selectedCategories = [category];
+            }
+
+            // Sync sidebar checkboxes
+            document.getElementById('cat-wearables').checked = state.selectedCategories.includes('Wearables');
+            document.getElementById('cat-smarthome').checked = state.selectedCategories.includes('Smart Home');
+            document.getElementById('cat-audio').checked = state.selectedCategories.includes('Audio');
+
+            state.selectedSpec = null;
+            state.currentPage = 1;
+            applyFilters();
+
+            // Smooth scroll to top of catalog
+            window.scrollTo({ top: 180, behavior: 'smooth' });
+        }
+
+        // 7. BRAND CHECKBOX HANDLER
+        function handleBrandFilterChange() {
+            const brands = [];
+            if (document.getElementById('brand-nexus').checked) brands.push('Nexus');
+            if (document.getElementById('brand-auratech').checked) brands.push('AuraTech');
+            if (document.getElementById('brand-pulse').checked) brands.push('Pulse');
+
+            state.selectedBrands = brands;
+            state.currentPage = 1;
+            applyFilters();
+        }
+
+        function setBrandShortcut(brand) {
+            document.getElementById('brand-nexus').checked = (brand === 'Nexus');
+            document.getElementById('brand-auratech').checked = (brand === 'AuraTech');
+            document.getElementById('brand-pulse').checked = (brand === 'Pulse');
+            handleBrandFilterChange();
+        }
+
+        // 8. DYNAMIC SIDEBAR COUNTS
+        function updateSidebarCounts() {
+            // Count matching items under current other filters
+            const wearablesCount = GADGET_PRODUCTS.filter(p => p.category === 'Wearables' && p.price <= state.maxPrice).length;
+            const smartHomeCount = GADGET_PRODUCTS.filter(p => p.category === 'Smart Home' && p.price <= state.maxPrice).length;
+            const audioCount = GADGET_PRODUCTS.filter(p => p.category === 'Audio' && p.price <= state.maxPrice).length;
+
+            document.getElementById('count-cat-wearables').textContent = wearablesCount;
+            document.getElementById('count-cat-smarthome').textContent = smartHomeCount;
+            document.getElementById('count-cat-audio').textContent = audioCount;
+
+            const nexusCount = GADGET_PRODUCTS.filter(p => p.brand === 'Nexus' && p.price <= state.maxPrice).length;
+            const auraCount = GADGET_PRODUCTS.filter(p => p.brand === 'AuraTech' && p.price <= state.maxPrice).length;
+            const pulseCount = GADGET_PRODUCTS.filter(p => p.brand === 'Pulse' && p.price <= state.maxPrice).length;
+
+            document.getElementById('count-brand-nexus').textContent = nexusCount;
+            document.getElementById('count-brand-auratech').textContent = auraCount;
+            document.getElementById('count-brand-pulse').textContent = pulseCount;
+        }
+
+        // 9. ACTIVE BADGES BAR
+        function renderActiveBadges() {
+            let badges = [];
+
+            state.selectedCategories.forEach(cat => {
+                badges.push({
+                    label: cat,
+                    remove: () => {
+                        const id = cat === 'Wearables' ? 'cat-wearables' : cat === 'Smart Home' ? 'cat-smarthome' : 'cat-audio';
+                        document.getElementById(id).checked = false;
+                        handleCategoryFilterChange();
+                    }
+                });
+            });
+
+            if (state.maxPrice < 1000) {
+                badges.push({
+                    label: `Hasta $${state.maxPrice}`,
+                    remove: () => setPriceShortcut(1000)
+                });
+            }
+
+            state.selectedBrands.forEach(b => {
+                badges.push({
+                    label: `Marca: ${b}`,
+                    remove: () => {
+                        const id = b === 'Nexus' ? 'brand-nexus' : b === 'AuraTech' ? 'brand-auratech' : 'brand-pulse';
+                        document.getElementById(id).checked = false;
+                        handleBrandFilterChange();
+                    }
+                });
+            });
+
+            if (state.selectedSpec) {
+                badges.push({
+                    label: `Tecnología: ${state.selectedSpec}`,
+                    remove: () => setSpecFilter(null)
+                });
+            }
+
+            if (state.searchQuery.trim() !== "") {
+                badges.push({
+                    label: `Buscar: "${state.searchQuery}"`,
+                    remove: () => clearSearch()
+                });
+            }
+
+            if (state.onlyOffers) {
+                badges.push({
+                    label: "Solo Ofertas",
+                    remove: () => { state.onlyOffers = false; applyFilters(); }
+                });
+            }
+
+            if (state.onlyWishlist) {
+                badges.push({
+                    label: "Favoritos",
+                    remove: () => { state.onlyWishlist = false; applyFilters(); }
+                });
+            }
+
+            if (badges.length > 0) {
+                activeBadgesContainer.classList.remove('hidden');
+                document.getElementById('active-filter-indicator').classList.remove('hidden');
+                activeBadgesList.innerHTML = badges.map((badge, idx) => `
+                    <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[11px] border border-primary/20">
+                        ${badge.label}
+                        <button onclick="window._removeBadge(${idx})" class="hover:text-error ml-1 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]">close</span>
+                        </button>
+                    </span>
+                `).join('');
+                window._badgesRef = badges;
+            } else {
+                activeBadgesContainer.classList.add('hidden');
+                document.getElementById('active-filter-indicator').classList.add('hidden');
+            }
+        }
+
+        window._removeBadge = function(index) {
+            if (window._badgesRef && window._badgesRef[index]) {
+                window._badgesRef[index].remove();
+            }
+        };
+
+        // 10. RESET ALL FILTERS
+        function resetAllFilters(e) {
+            if (e) e.preventDefault();
+            state.selectedCategories = [];
+            state.maxPrice = 1000;
+            state.selectedBrands = [];
+            state.selectedSpec = null;
+            state.searchQuery = "";
+            state.onlyWishlist = false;
+            state.onlyOffers = false;
+            state.currentPage = 1;
+
+            document.getElementById('cat-wearables').checked = false;
+            document.getElementById('cat-smarthome').checked = false;
+            document.getElementById('cat-audio').checked = false;
+            document.getElementById('brand-nexus').checked = false;
+            document.getElementById('brand-auratech').checked = false;
+            document.getElementById('brand-pulse').checked = false;
+            priceSliderEl.value = 1000;
+            priceDisplayBadgeEl.textContent = "Hasta $1,000";
+            priceCurrentLabelEl.textContent = "$1,000";
+
+            document.getElementById('search-input').value = "";
+            document.getElementById('mobile-search-input').value = "";
+            document.getElementById('search-clear-btn').classList.add('hidden');
+
+            applyFilters();
+            showToast("Filtros restablecidos", "filter_alt_off");
+        }
+
+        // 11. SEARCH
+        function handleSearch(val) {
+            state.searchQuery = val;
+            state.currentPage = 1;
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (val.trim()) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+            applyFilters();
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = "";
+            document.getElementById('mobile-search-input').value = "";
+            handleSearch("");
+        }
+
+        function toggleMobileSearch() {
+            const bar = document.getElementById('mobile-search-bar');
+            bar.classList.toggle('hidden');
+            if (!bar.classList.contains('hidden')) {
+                document.getElementById('mobile-search-input').focus();
+            }
+        }
+
+        // 12. SORTING
+        function handleSortChange(val) {
+            state.sortBy = val;
+            applyFilters();
+        }
+
+        // 13. PAGINATION
+        function renderPagination(totalPages) {
+            if (totalPages <= 1) {
+                paginationControlsEl.innerHTML = "";
+                return;
+            }
+
+            let html = `
+                <button onclick="changePage(${state.currentPage - 1})" ${state.currentPage === 1 ? 'disabled' : ''} class="w-10 h-10 rounded-full flex items-center justify-center glass-card text-on-surface-variant hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                </button>
+            `;
+
+            for (let i = 1; i <= totalPages; i++) {
+                const isActive = (i === state.currentPage);
+                html += `
+                    <button onclick="changePage(${i})" class="w-10 h-10 rounded-full flex items-center justify-center font-button text-sm transition-all ${isActive ? 'bg-primary text-white shadow-md shadow-primary/30 font-bold' : 'glass-card text-on-surface-variant hover:text-primary hover:border-primary'}">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            html += `
+                <button onclick="changePage(${state.currentPage + 1})" ${state.currentPage === totalPages ? 'disabled' : ''} class="w-10 h-10 rounded-full flex items-center justify-center glass-card text-on-surface-variant hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                </button>
+            `;
+
+            paginationControlsEl.innerHTML = html;
+        }
+
+        function changePage(page) {
+            state.currentPage = page;
+            applyFilters();
+            window.scrollTo({ top: 220, behavior: 'smooth' });
+        }
+
+        // 14. WISHLIST
+        function toggleWishlist(productId, btn) {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (state.wishlist.has(productId)) {
+                state.wishlist.delete(productId);
+                icon.classList.remove('text-error', 'fill-active');
+                icon.classList.add('text-outline');
+                showToast("Eliminado de favoritos", "heart_minus");
+            } else {
+                state.wishlist.add(productId);
+                icon.classList.add('text-error', 'fill-active');
+                icon.classList.remove('text-outline');
+                showToast("¡Guardado en tus favoritos!", "favorite");
+            }
+
+            // Update badge
+            if (state.wishlist.size > 0) {
+                wishlistBadgeEl.textContent = state.wishlist.size;
+                wishlistBadgeEl.classList.remove('hidden');
+                document.getElementById('nav-wishlist-icon').classList.add('text-error');
+            } else {
+                wishlistBadgeEl.classList.add('hidden');
+                document.getElementById('nav-wishlist-icon').classList.remove('text-error');
+            }
+
+            if (state.onlyWishlist) {
+                applyFilters();
+            }
+        }
+
+        function filterWishlistOnly() {
+            state.onlyWishlist = !state.onlyWishlist;
+            applyFilters();
+            if (state.onlyWishlist) {
+                showToast("Mostrando solo artículos favoritos", "favorite");
+            }
+        }
+
+        function handleQuickFilter(type) {
+            if (type === 'ofertas') {
+                state.onlyOffers = !state.onlyOffers;
+                applyFilters();
+                if (state.onlyOffers) showToast("Mostrando gadgets en oferta especial", "local_offer");
+            }
+        }
+
+        // 15. CART MANAGEMENT
+        function addToCart(productId) {
+            const product = GADGET_PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = state.cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                state.cart[existingIndex].qty += 1;
+            } else {
+                state.cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`${product.name} añadido al carrito`, "check_circle");
+        }
+
+        function updateCartUI() {
+            const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCounterBadgeEl.textContent = totalItems;
+            
+            // Animation bump
+            cartCounterBadgeEl.classList.add('scale-125');
+            setTimeout(() => cartCounterBadgeEl.classList.remove('scale-125'), 200);
+
+            // Render Cart Drawer Items
+            const itemsListEl = document.getElementById('cart-items-list');
+            const totalPriceEl = document.getElementById('cart-total-price');
+
+            if (state.cart.length === 0) {
+                itemsListEl.innerHTML = `
+                    <div class="h-64 flex flex-col items-center justify-center text-center p-6 text-outline">
+                        <span class="material-symbols-outlined text-[48px] mb-2 opacity-50">shopping_bag</span>
+                        <p class="font-body-md text-sm">Tu carrito está vacío</p>
+                        <p class="font-label-sm text-xs mt-1">Explora nuestros gadgets futuristas</p>
+                    </div>
+                `;
+                totalPriceEl.textContent = "$0.00";
+                return;
+            }
+
+            let total = 0;
+            let html = "";
+            state.cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                html += `
+                    <div class="flex items-center gap-3 p-3 rounded-2xl glass-card border border-glass-stroke">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-contain rounded-lg p-1 bg-surface-gray">
+                        <div class="flex-grow min-w-0">
+                            <h4 class="font-button text-xs font-bold text-on-surface truncate">${item.name}</h4>
+                            <span class="font-label-sm text-xs text-primary font-bold">$${item.price.toFixed(2)}</span>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <button onclick="modifyCartQty(${item.id}, -1)" class="w-5 h-5 rounded-full bg-surface-gray hover:bg-surface-dim flex items-center justify-center text-xs">-</button>
+                                <span class="font-label-sm text-xs font-bold">${item.qty}</span>
+                                <button onclick="modifyCartQty(${item.id}, 1)" class="w-5 h-5 rounded-full bg-surface-gray hover:bg-surface-dim flex items-center justify-center text-xs">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeCartItem(${item.id})" class="text-outline hover:text-error p-1">
+                            <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                    </div>
+                `;
+            });
+
+            itemsListEl.innerHTML = html;
+            totalPriceEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function modifyCartQty(id, delta) {
+            const index = state.cart.findIndex(i => i.id === id);
+            if (index === -1) return;
+            state.cart[index].qty += delta;
+            if (state.cart[index].qty <= 0) {
+                state.cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeCartItem(id) {
+            state.cart = state.cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                updateCartUI();
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function checkoutCart() {
+            if (state.cart.length === 0) {
+                showToast("Tu carrito está vacío", "info");
+                return;
+            }
+            showToast("¡Pedido procesado con éxito!", "verified");
+            state.cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        // 16. QUICK VIEW MODAL
+        function openQuickView(id) {
+            const product = GADGET_PRODUCTS.find(p => p.id === id);
+            if (!product) return;
+
+            const modal = document.getElementById('quick-view-modal');
+            const content = document.getElementById('quick-view-content');
+
+            content.innerHTML = `
+                <div class="flex items-center justify-center p-4 bg-gradient-to-tr from-primary/5 via-surface-white to-transparent rounded-2xl">
+                    <img src="${product.image}" alt="${product.name}" class="h-64 object-contain drop-shadow-2xl">
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold font-label-sm text-[11px] uppercase">${product.brand}</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-surface-gray text-on-surface-variant font-label-sm text-[11px] uppercase">${product.category}</span>
+                    </div>
+                    <h2 class="font-headline-lg text-[24px] text-on-surface leading-tight mb-2">${product.name}</h2>
+                    <p class="font-body-md text-sm text-on-surface-variant mb-4">${product.description}</p>
+                    
+                    <div class="mb-4">
+                        <span class="font-label-sm text-[11px] text-outline uppercase block mb-1.5 font-semibold">Especificaciones de Vanguardia:</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            ${product.specs.map(s => `<span class="px-3 py-1 bg-surface-white border border-outline-variant/40 rounded-full font-label-sm text-[11px] text-on-surface">${s}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/30">
+                        <div>
+                            <span class="font-label-sm text-[11px] text-outline uppercase block">Precio Oficial</span>
+                            <span class="font-headline-lg text-[26px] font-bold text-primary font-label-sm">$${product.price.toFixed(2)}</span>
+                        </div>
+                        <button onclick="addToCart(${product.id}); closeQuickView();" class="bg-primary text-white font-button text-sm px-6 py-3 rounded-full hover:bg-primary-container shadow-lg shadow-primary/25 active:scale-95 transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.getElementById('modal-card').classList.remove('scale-95');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('modal-card').classList.add('scale-95');
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeQuickView();
+                const drawer = document.getElementById('cart-drawer');
+                if (!drawer.classList.contains('translate-x-full')) toggleCartDrawer();
+            }
+        });
+
+        // 17. TOAST NOTIFICATIONS
+        function showToast(message, iconName = "check_circle") {
+            const toast = document.getElementById('toast-message');
+            const text = document.getElementById('toast-text');
+            const icon = document.getElementById('toast-icon');
+
+            if (!toast || !text) return;
+
+            text.textContent = message;
+            if (icon) icon.textContent = iconName;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            if (window._toastTimeout) clearTimeout(window._toastTimeout);
+            window._toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2600);
+        }
+    </script>
+</body>
+</html>
