@@ -1,0 +1,570 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MUNDO GADGET - Descubre la tecnología que transforma tu mundo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1b1b",
+                        "tertiary-container": "#5663a5",
+                        "accent-gradient-start": "#6C4DDB",
+                        "surface-white": "#F8F8FA",
+                        "primary": "#5330c1",
+                        "on-secondary-fixed": "#1d0061",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#cbbeff",
+                        "error": "#ba1a1a",
+                        "glass-stroke": "rgba(255, 255, 255, 0.4)",
+                        "inverse-surface": "#313030",
+                        "on-primary-fixed": "#1d0061",
+                        "secondary-fixed": "#e7deff",
+                        "secondary-fixed-dim": "#cbbeff",
+                        "primary-fixed": "#e7deff",
+                        "on-primary-fixed-variant": "#4b24b9",
+                        "on-secondary-fixed-variant": "#4b22bc",
+                        "surface": "#fcf9f8",
+                        "on-secondary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface-variant": "#484554",
+                        "primary-fixed-dim": "#cbbeff",
+                        "on-secondary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ebe3ff",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-high": "#eae7e7",
+                        "outline-variant": "#cac4d6",
+                        "primary-container": "#6c4ddb",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b9c3ff",
+                        "secondary": "#603fd2",
+                        "on-primary": "#ffffff",
+                        "accent-gradient-end": "#AAB7FF",
+                        "outline": "#797585",
+                        "surface-tint": "#6343d1",
+                        "on-tertiary-fixed-variant": "#354281",
+                        "on-tertiary-fixed": "#021355",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed": "#dee1ff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container": "#f0edec",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary": "#3e4b8b",
+                        "surface-gray": "#ECECF1",
+                        "on-tertiary-container": "#e3e5ff",
+                        "secondary-container": "#7a5bec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "stack-md": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "button": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl-mobile": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fcf9f8; overflow-x: hidden; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(83, 48, 193, 0.08);
+        }
+        .glass-card-product {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.55) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 36px -12px rgba(108, 77, 219, 0.12);
+        }
+        .glass-card-product:hover {
+            box-shadow: 0 20px 48px -12px rgba(108, 77, 219, 0.22);
+            border-color: rgba(203, 190, 255, 0.7);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #6C4DDB 0%, #AAB7FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bg-aurora {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108,77,219,0.15) 0%, rgba(252,249,248,0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .product-card {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .product-card.hidden-card {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .product-card.show-card {
+            display: flex;
+            animation: fadeInCard 0.4s ease forwards;
+        }
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(14px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface antialiased relative">
+<!-- Ambient Background -->
+<div class="bg-aurora top-[-10%] left-[-10%]"></div>
+<div class="bg-aurora top-[20%] right-[-5%]" style="background: radial-gradient(circle, rgba(86,99,165,0.1) 0%, rgba(252,249,248,0) 70%);"></div>
+<div class="bg-aurora top-[55%] left-[-5%]" style="background: radial-gradient(circle, rgba(108,77,219,0.12) 0%, rgba(252,249,248,0) 70%);"></div>
+<!-- TopNavBar -->
+<nav class="bg-surface-white/80 dark:bg-on-background/80 backdrop-blur-xl rounded-3xl mt-4 mx-auto w-11/12 max-w-7xl sticky top-4 border border-glass-stroke shadow-lg shadow-primary/10 flex flex-col gap-3 px-6 py-3.5 z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-accent-gradient-start to-accent-gradient-end flex items-center justify-center text-white shadow-md shadow-primary/25 font-headline-lg font-bold text-lg">⚡</div>
+<span class="font-display-lg text-[22px] tracking-tight font-bold text-on-background uppercase">MUNDO GADGET</span>
+</div>
+<div class="hidden md:flex items-center text-xs font-label-sm tracking-widest text-primary/80 uppercase font-semibold">
+      JUST INNOVATE • THE FUTURE OF TECH
+    </div>
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors" title="Cuenta"><span class="material-symbols-outlined text-[19px]">account_circle</span></button>
+<button class="w-9 h-9 rounded-full glass-card relative flex items-center justify-center hover:text-primary transition-colors" title="Carrito">
+<span class="material-symbols-outlined text-[19px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center" id="cart-counter">2</span>
+</button>
+<a class="hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white text-[12px] font-button font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow-md shadow-primary/20 hover:opacity-95 transition-all" href="#categorias">Ver Ofertas</a>
+</div>
+</div>
+<!-- Pill grid navigation like Nike reference -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar border-t border-outline-variant/20">
+<a class="px-4 py-1.5 rounded-xl bg-on-background text-white text-[12px] font-button font-bold tracking-wider uppercase transition-all whitespace-nowrap shadow-sm" href="#">HOME</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#destacados">NOVEDADES</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#categorias">GADGETS</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#categorias">AUDIO</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#categorias">SMART HOME</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#categorias">GAMING</a>
+<a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm" href="#categorias">OFERTAS</a>
+<div class="ml-auto flex items-center bg-white border border-outline-variant/30 px-3 py-1.5 rounded-xl shadow-sm text-outline text-[12px] font-button">
+<span class="material-symbols-outlined text-[16px] mr-1.5">search</span>
+<span class="uppercase font-semibold tracking-wider">BUSCAR</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-8 pb-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="destacados">
+<!-- Section Discover Heading -->
+<div class="flex items-center justify-between mb-5">
+<h2 class="font-headline-xl text-[28px] md:text-[34px] font-bold tracking-tight text-on-background uppercase">
+      DISCOVER
+    </h2>
+<span class="font-label-sm text-[12px] text-primary tracking-wider uppercase font-semibold">Edición Limitada 2024</span>
+</div>
+<!-- 2 Dual Panoramic Banners -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Banner 1: Pegasus/AeroBuds Ultra Tech Hero -->
+<div class="lg:col-span-6 rounded-3xl relative overflow-hidden p-8 flex flex-col justify-between min-h-[290px] shadow-lg shadow-primary/10 border border-white/80 group" style="background: linear-gradient(135deg, #1e3a5f 0%, #0d9488 100%);">
+<div class="absolute -right-6 -bottom-6 w-56 h-56 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between z-10">
+<span class="font-label-sm text-[11px] font-bold text-white/90 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">Novedad 2024</span>
+<div class="flex gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-cyan-300"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-purple-300"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span>
+</div>
+</div>
+<!-- Floating Tech Image Center -->
+<div class="my-auto py-2 flex items-center justify-center z-10">
+<img alt="CyberKeyboard Mech Glow" class="h-36 md:h-40 w-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Vjhi-w3YA1mVVD5mfSEBSL3jTC6qVEqHidgD1dIv0-oCJwjCpx4Uta3hXu4ntttzvwM4tt7IMH4PEmlaT_ls3rrO_FyBzkKhW7lIwX_v8dgJL6gFmaWGJ9HOTHAurLXHk4ed1-wZIqtGPtvneEZ0K6IZD2e-ch_g6w0K4lIJxA2AbchVCtjJ9uQ_4VNA3EOxDhi0zMY0UPlYNtzNfcgzzCBiPdLBoES7C6m_FjPc8rneUGXuDYXU">
+</div>
+<div class="z-10 text-center">
+<h3 class="font-headline-lg text-[22px] md:text-[26px] font-bold text-white uppercase tracking-wider leading-tight drop-shadow-sm">
+          CYBER MECH ULTRA PRO
+        </h3>
+<p class="font-label-sm text-[12px] text-white/80 tracking-widest uppercase mt-1">Switches Ópticos • RGB Dual • Chasis Cristalino</p>
+</div>
+</div>
+<!-- Banner 2: Editorial / Special Jordan-style Collection -->
+<div class="lg:col-span-6 rounded-3xl relative overflow-hidden p-8 flex flex-col justify-between min-h-[290px] shadow-lg shadow-primary/10 border border-white/80 group" style="background: linear-gradient(135deg, #2b1055 0%, #751a3d 60%, #991b1b 100%);">
+<div class="absolute right-0 top-0 w-3/5 h-full opacity-35 mix-blend-screen pointer-events-none overflow-hidden">
+<img alt="Hero collection" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1XK_v6zwG2RfFTMLYPYkaB6AYP8XSJD9JVvxh9o7yJk02tkRzAwT269smu-8j4z7upyS9ABZUWhEqH4n5NNQ2klWctqeqORNplMV4DCjNFJdUTg5_EbaLyFH-O-5jPnmR4hhPxOEh46DyKAZgPgzkRElMr5BcaNOouLt_DfZIcLoNZph1ZKPMEdGT-abr1o-OXlZMbKPRdoHeusADQ7DWp7EYTf5Vs7kJEWZRyp8JGaBIBY9YF52EzIXw">
+</div>
+<div class="z-10 max-w-sm">
+<span class="font-label-sm text-[11px] font-bold text-amber-300 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-amber-300/30">Flagship Experience</span>
+<h3 class="font-headline-xl text-[26px] md:text-[30px] font-bold text-white uppercase tracking-tight leading-snug mt-3">
+          THE POWER OF FUTURE TECH
+        </h3>
+<p class="font-body-md text-[13px] text-white/85 mt-2 leading-relaxed">
+          Dispositivos de alto rendimiento diseñados para transformar tu espacio de trabajo y entretenimiento.
+        </p>
+</div>
+<div class="flex items-center gap-3 pt-6 z-10">
+<a class="bg-white text-on-background px-6 py-2.5 rounded-xl font-button text-[12px] font-bold uppercase tracking-wider shadow-lg hover:bg-surface-white hover:scale-105 transition-all text-center" href="#categorias">
+          SHOP NOW
+        </a>
+<a class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-6 py-2.5 rounded-xl font-button text-[12px] font-bold uppercase tracking-wider hover:bg-white/30 transition-all text-center" href="#categorias">
+          EXPLORE
+        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Brands Strip -->
+<section class="py-stack-lg border-y border-outline-variant/20 bg-surface-white/30 backdrop-blur-sm">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500 overflow-x-auto gap-8 no-scrollbar">
+<!-- Simulated Logos -->
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-variant min-w-max">Apple</div>
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-variant min-w-max">SAMSUNG</div>
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-variant min-w-max">SONY</div>
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-variant min-w-max">JBL</div>
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-dest min-w-max">Xiaomi</div>
+<div class="font-headline-lg text-[24px] font-bold text-on-surface-variant min-w-max">logitech</div>
+</div>
+</section>
+<!-- Dynamic Categories & Complete Product Cards Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-20" id="categorias">
+<!-- Header of the section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<h2 class="font-headline-xl text-[28px] md:text-[34px] font-bold tracking-tight text-on-background uppercase">
+      FEATURED GADGETS
+    </h2>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">
+      Selección curada con imágenes protagónicas, especificaciones de élite y diseño Ether Glaze.
+    </p>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-outline hidden sm:inline" id="product-count-label">Mostrando 5 productos</span>
+<div class="flex gap-1 p-1 bg-surface-gray/70 rounded-2xl border border-outline-variant/30">
+<button class="px-3 py-1 rounded-xl bg-white text-on-background font-button text-[11px] font-bold uppercase shadow-sm tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+<span>Catálogo</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Category Filter Tabs (Interactive) -->
+<div class="flex items-center gap-2.5 overflow-x-auto pb-4 no-scrollbar mb-10 border-b border-outline-variant/20">
+<button class="cat-tab active-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap bg-primary text-white shadow-md shadow-primary/20" onclick="filterCategory('todos', this)">
+<span class="material-symbols-outlined text-[18px]">apps</span>
+<span>Todos</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('gadgets', this)">
+<span class="material-symbols-outlined text-[18px]">devices_other</span>
+<span>01 — Gadgets</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('audio', this)">
+<span class="material-symbols-outlined text-[18px]">headphones</span>
+<span>02 — Audio</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('gaming', this)">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+<span>03 — Gaming</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('smarthome', this)">
+<span class="material-symbols-outlined text-[18px]">home_iot_device</span>
+<span>04 — Smart Home</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('accesorios', this)">
+<span class="material-symbols-outlined text-[18px]">cable</span>
+<span>05 — Accesorios</span>
+</button>
+<button class="cat-tab group px-5 py-2.5 rounded-full font-button text-[13px] tracking-wide uppercase transition-all duration-300 flex items-center gap-2 whitespace-nowrap glass-card text-on-surface-variant hover:text-primary hover:border-primary/40" onclick="filterCategory('movil', this)">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+<span>06 — Tecnología móvil</span>
+</button>
+</div>
+<!-- Product Grid with Complete Product Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" id="product-grid">
+<!-- Product Card 1: AeroBuds Ultra -->
+<div class="product-card show-card flex flex-col justify-between rounded-3xl bg-surface-gray/60 border border-white/80 p-3 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden" data-category="audio gadgets">
+<div class="w-full flex items-center justify-between px-2 pt-2 z-10">
+<span class="text-[10px] font-label-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-white/80 text-primary shadow-sm border border-primary/20">NEW</span>
+<button class="w-7 h-7 rounded-full bg-white/80 text-outline hover:text-error transition-colors flex items-center justify-center" onclick="toggleWishlist(this)" title="Favorito">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<!-- Huge Floating Product Image Area -->
+<div class="relative w-full h-72 flex items-center justify-center p-2 my-auto">
+<img alt="AeroBuds Ultra" class="h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u">
+</div>
+<!-- Sleek Dark Pill Base Footer like Reference -->
+<div class="w-full bg-on-background text-white rounded-2xl py-3 px-3 flex flex-col items-center justify-center text-center transition-all group-hover:bg-primary shadow-sm">
+<span class="font-headline-lg text-[13px] font-bold tracking-wider uppercase leading-tight line-clamp-1">AEROBUDS ULTRA</span>
+<span class="font-label-sm text-[12px] text-white/80 mt-0.5 font-semibold">$449.000</span>
+<button class="mt-2 w-full py-1 bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-button font-bold uppercase rounded-lg transition-colors flex items-center justify-center gap-1" onclick="addToCart(this, 'AeroBuds Ultra')">
+<span class="material-symbols-outlined text-[14px]">add_shopping_cart</span> Añadir
+      </button>
+</div>
+</div>
+<!-- Product Card 2: Quantum Watch Pro -->
+<div class="product-card show-card flex flex-col justify-between rounded-3xl bg-surface-gray/60 border border-white/80 p-3 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden" data-category="gadgets movil">
+<div class="w-full flex items-center justify-between px-2 pt-2 z-10">
+<span class="text-[10px] font-label-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-white/80 text-emerald-600 shadow-sm border border-emerald-500/20">HOT</span>
+<button class="w-7 h-7 rounded-full bg-white/80 text-outline hover:text-error transition-colors flex items-center justify-center" onclick="toggleWishlist(this)" title="Favorito">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="relative w-full h-72 flex items-center justify-center p-2 my-auto">
+<img alt="Quantum Watch Pro" class="h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl">
+</div>
+<div class="w-full bg-on-background text-white rounded-2xl py-3 px-3 flex flex-col items-center justify-center text-center transition-all group-hover:bg-primary shadow-sm">
+<span class="font-headline-lg text-[13px] font-bold tracking-wider uppercase leading-tight line-clamp-1">QUANTUM WATCH PRO</span>
+<span class="font-label-sm text-[12px] text-white/80 mt-0.5 font-semibold">$989.000</span>
+<button class="mt-2 w-full py-1 bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-button font-bold uppercase rounded-lg transition-colors flex items-center justify-center gap-1" onclick="addToCart(this, 'Quantum Watch Pro')">
+<span class="material-symbols-outlined text-[14px]">add_shopping_cart</span> Añadir
+      </button>
+</div>
+</div>
+<!-- Product Card 3: CyberKeyboard Mech Glow -->
+<div class="product-card show-card flex flex-col justify-between rounded-3xl bg-surface-gray/60 border border-white/80 p-3 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden" data-category="gaming gadgets">
+<div class="w-full flex items-center justify-between px-2 pt-2 z-10">
+<span class="text-[10px] font-label-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-white/80 text-amber-600 shadow-sm border border-amber-500/20">FAV</span>
+<button class="w-7 h-7 rounded-full bg-white/80 text-outline hover:text-error transition-colors flex items-center justify-center" onclick="toggleWishlist(this)" title="Favorito">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="relative w-full h-72 flex items-center justify-center p-2 my-auto">
+<img alt="CyberKeyboard Mech Glow" class="h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Vjhi-w3YA1mVVD5mfSEBSL3jTC6qVEqHidgD1dIv0-oCJwjCpx4Uta3hXu4ntttzvwM4tt7IMH4PEmlaT_ls3rrO_FyBzkKhW7lIwX_v8dgJL6gFmaWGJ9HOTHAurLXHk4ed1-wZIqtGPtvneEZ0K6IZD2e-ch_g6w0K4lIJxA2AbchVCtjJ9uQ_4VNA3EOxDhi0zMY0UPlYNtzNfcgzzCBiPdLBoES7C6m_FjPc8rneUGXuDYXU">
+</div>
+<div class="w-full bg-on-background text-white rounded-2xl py-3 px-3 flex flex-col items-center justify-center text-center transition-all group-hover:bg-primary shadow-sm">
+<span class="font-headline-lg text-[13px] font-bold tracking-wider uppercase leading-tight line-clamp-1">CYBERKEYBOARD MECH</span>
+<span class="font-label-sm text-[12px] text-white/80 mt-0.5 font-semibold">$569.000</span>
+<button class="mt-2 w-full py-1 bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-button font-bold uppercase rounded-lg transition-colors flex items-center justify-center gap-1" onclick="addToCart(this, 'CyberKeyboard Mech Glow')">
+<span class="material-symbols-outlined text-[14px]">add_shopping_cart</span> Añadir
+      </button>
+</div>
+</div>
+<!-- Product Card 4: Nova Titan Smartphone 5G -->
+<div class="product-card show-card flex flex-col justify-between rounded-3xl bg-surface-gray/60 border border-white/80 p-3 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden" data-category="movil gadgets">
+<div class="w-full flex items-center justify-between px-2 pt-2 z-10">
+<span class="text-[10px] font-label-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-white/80 text-rose-600 shadow-sm border border-rose-500/20">-15%</span>
+<button class="w-7 h-7 rounded-full bg-white/80 text-outline hover:text-error transition-colors flex items-center justify-center" onclick="toggleWishlist(this)" title="Favorito">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="relative w-full h-72 flex items-center justify-center p-2 my-auto">
+<img alt="Nova Titan Smartphone 5G" class="h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4evFTMCNmuwnYazoBjSNNPxQZNzAC34u-a32c3Rl6Ip9_mWTU0u4XXXc6JdaWIxEqpz0bLChE_V5EcyTZSjDYhe_4cl8a7HAES9EFvDGsoAmX6tF1Lb_zNMMLeZ_Z06NusarR5myuIbtE1jHsgmzNTbthvXB8JfOR2JVbYBiFWhHOLts1EHvD3aM1qW9WkygJW2FeCsMJa-U4P0zSabDGBwxEXv1-gpvZZ-EZ_ucHtDUisM60TfQH">
+</div>
+<div class="w-full bg-on-background text-white rounded-2xl py-3 px-3 flex flex-col items-center justify-center text-center transition-all group-hover:bg-primary shadow-sm">
+<span class="font-headline-lg text-[13px] font-bold tracking-wider uppercase leading-tight line-clamp-1">NOVA TITAN 5G</span>
+<span class="font-label-sm text-[12px] text-white/80 mt-0.5 font-semibold">$3.899.000</span>
+<button class="mt-2 w-full py-1 bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-button font-bold uppercase rounded-lg transition-colors flex items-center justify-center gap-1" onclick="addToCart(this, 'Nova Titan Smartphone 5G')">
+<span class="material-symbols-outlined text-[14px]">add_shopping_cart</span> Añadir
+      </button>
+</div>
+</div>
+<!-- Product Card 5: Apex Pro Wireless Controller -->
+<div class="product-card show-card flex flex-col justify-between rounded-3xl bg-surface-gray/60 border border-white/80 p-3 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden" data-category="gaming audio accesorios">
+<div class="w-full flex items-center justify-between px-2 pt-2 z-10">
+<span class="text-[10px] font-label-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-white/80 text-primary shadow-sm border border-primary/20">PRO</span>
+<button class="w-7 h-7 rounded-full bg-white/80 text-outline hover:text-error transition-colors flex items-center justify-center" onclick="toggleWishlist(this)" title="Favorito">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="relative w-full h-72 flex items-center justify-center p-2 my-auto">
+<img alt="Apex Pro Wireless Controller" class="h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsyQ2Y9-pt-5-CylGDEtTckSV9N0m5yddOdO81Q3x60qWY1S4izml_C56ADU-5ZP1bNyk6te_QKQNvFNv8G7-touYC3Q6t6xxXS0LcrSjHQ0tvo6-OTgtpMSMRNCEFQl_V9b-406jBT0DOtd-Cp8zvwXVC7blZI2HBI6MDuoHyCV_wt9NwVFhLaAsj3ZR6v_n5PS7U86DnNZ3KFLvmlBQB5kTremb2bak3_GHz6_VB3oxKxB5H65cV">
+</div>
+<div class="w-full bg-on-background text-white rounded-2xl py-3 px-3 flex flex-col items-center justify-center text-center transition-all group-hover:bg-primary shadow-sm">
+<span class="font-headline-lg text-[13px] font-bold tracking-wider uppercase leading-tight line-clamp-1">APEX PRO WIRELESS</span>
+<span class="font-label-sm text-[12px] text-white/80 mt-0.5 font-semibold">$499.000</span>
+<button class="mt-2 w-full py-1 bg-white/20 hover:bg-white text-white hover:text-primary text-[11px] font-button font-bold uppercase rounded-lg transition-colors flex items-center justify-center gap-1" onclick="addToCart(this, 'Apex Pro Wireless Controller')">
+<span class="material-symbols-outlined text-[14px]">add_shopping_cart</span> Añadir
+      </button>
+</div>
+</div>
+</div>
+<!-- Interactive Feedback Toast -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none glass-card bg-surface-white/95 px-5 py-3 rounded-2xl shadow-xl border border-primary/30 flex items-center gap-3" id="toast-message">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</span>
+<span class="font-button text-[14px] text-on-surface" id="toast-text">Producto añadido</span>
+</div>
+<!-- Promotional Banner / Feature Perks inside catalog view -->
+<div class="mt-16 rounded-3xl glass-card p-8 border border-white/60 bg-gradient-to-r from-surface-white via-surface-container-low to-surface-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Garantía Oficial</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">12 meses de cobertura total</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Envío Express</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">24-48h en principales ciudades</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Pago 100% Seguro</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Cripto, tarjetas y PSE</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Soporte Técnico 24/7</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Atención experta personalizada</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-dim dark:bg-inverse-surface w-full pt-section-gap pb-stack-lg border-t border-outline-variant/30 grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto mt-section-gap">
+<div class="flex flex-col gap-4">
+<span class="font-headline-lg text-headline-lg-mobile text-on-surface dark:text-surface-white">MUNDO GADGET</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 MUNDO GADGET. El futuro de la tecnología en tus manos.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Términos</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Soporte</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Contacto</a>
+</div>
+</footer>
+<!-- Interactive Filtering and UI Script -->
+<script>
+    let cartCount = 2;
+
+    function filterCategory(category, activeBtn) {
+        // Update active button styling
+        const buttons = document.querySelectorAll('.cat-tab');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+            btn.classList.add('glass-card', 'text-on-surface-variant');
+        });
+
+        activeBtn.classList.remove('glass-card', 'text-on-surface-variant');
+        activeBtn.classList.add('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+
+        // Filter cards
+        const cards = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category') || '';
+            if (category === 'todos' || cardCategories.includes(category)) {
+                card.classList.remove('hidden-card');
+                card.classList.add('show-card');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden-card');
+                card.classList.remove('show-card');
+            }
+        });
+
+        // Update count label
+        const countLabel = document.getElementById('product-count-label');
+        if (countLabel) {
+            countLabel.textContent = `Mostrando ${visibleCount} ${visibleCount === 1 ? 'producto' : 'productos'}`;
+        }
+    }
+
+    function toggleWishlist(button) {
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon.classList.contains('fill-1')) {
+            icon.classList.remove('fill-1', 'text-error');
+            icon.classList.add('text-outline');
+            showToast('Removido de tu lista de deseos');
+        } else {
+            icon.classList.add('fill-1', 'text-error');
+            icon.classList.remove('text-outline');
+            showToast('¡Guardado en tus favoritos!');
+        }
+    }
+
+    function addToCart(button, productName) {
+        cartCount++;
+        const counter = document.getElementById('cart-counter');
+        if (counter) {
+            counter.textContent = cartCount;
+            counter.classList.add('scale-125');
+            setTimeout(() => counter.classList.remove('scale-125'), 200);
+        }
+        showToast(`${productName} añadido al carrito`);
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast-message');
+        const text = document.getElementById('toast-text');
+        if (!toast || !text) return;
+
+        text.textContent = message;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-20', 'opacity-0');
+        }, 2500);
+    }
+</script>
+</body></html>

@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>MUNDO GADGET - Descubre la tecnología que transforma tu mundo</title>
+  <meta name="description"
+    content="Tienda online de tecnología y gadgets premium. Descubre lo último en Wearables, Smart Home y Audio con envío express y garantía oficial.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#0284C7",
+            "primary-hover": "#0369a1",
+            "primary-light": "#e0f2fe",
+            "secondary": "#38BDF8",
+            "accent-gradient-start": "#0284C7",
+            "accent-gradient-end": "#38BDF8",
+            "on-background": "#0f172a",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#334155",
+            "surface-white": "#f8fafc",
+            "surface-bright": "#f0f4f9",
+            "surface-gray": "#e2e8f0",
+            "outline": "#64748b",
+            "outline-variant": "#cbd5e1",
+            "error": "#ef4444",
+            "glass-stroke": "rgba(255, 255, 255, 0.6)"
+          },
+          "fontFamily": {
+            "body-md": ["Hanken Grotesk", "sans-serif"],
+            "headline-xl": ["Sora", "sans-serif"],
+            "headline-lg": ["Sora", "sans-serif"],
+            "button": ["Sora", "sans-serif"],
+            "label-sm": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f0f4f9;
+      overflow-x: hidden;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.1);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bg-aurora {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, rgba(240, 244, 249, 0) 70%);
+      filter: blur(80px);
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Product Card transitions */
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card.hidden-card {
+      display: none !important;
+    }
+
+    .product-card.show-card {
+      display: flex !important;
+      animation: fadeInCard 0.35s ease forwards;
+    }
+
+    @keyframes fadeInCard {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Filters: Radio Circle */
+    .custom-radio-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      background: white;
+    }
+
+    .filter-radio:checked+.custom-radio-circle {
+      border-color: #0284c7;
+    }
+
+    .filter-radio:checked+.custom-radio-circle::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #0284c7;
+    }
+
+    .filter-radio:checked~.filter-label-text {
+      color: #0284c7;
+      font-weight: 700;
+    }
+
+    /* Filters: Checkbox */
+    .custom-check-box {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      background: white;
+    }
+
+    .filter-checkbox:checked+.custom-check-box {
+      border-color: #0284c7;
+      background-color: #0284c7;
+    }
+
+    .filter-checkbox:checked+.custom-check-box::after {
+      content: '✓';
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .filter-checkbox:checked~.filter-label-text {
+      color: #0284c7;
+      font-weight: 700;
+    }
+
+    /* Custom Price Range Slider */
+    .price-slider-custom {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #0284C7 0%, #0284C7 100%, #e2e8f0 100%, #e2e8f0 100%);
+      outline: none;
+    }
+
+    .price-slider-custom::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #0284C7;
+      border: 3.5px solid white;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .price-slider-custom::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .price-slider-custom::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #0284C7;
+      border: 3.5px solid white;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+      cursor: pointer;
+    }
+
+    /* Cart Drawer */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 440px;
+      max-width: 92vw;
+      height: 100vh;
+      background: #f8fafc;
+      z-index: 101;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    /* Checkout Modal */
+    .checkout-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .checkout-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .checkout-modal {
+      background: white;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.92) translateY(15px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .checkout-overlay.active .checkout-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .checkout-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      color: #0f172a;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      background: #f8fafc;
+    }
+
+    .checkout-input:focus {
+      border-color: #0284C7;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+      background: white;
+    }
+
+    /* Qty buttons */
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1.5px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: white;
+      color: #334155;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .qty-btn:hover {
+      border-color: #0284C7;
+      color: #0284C7;
+      background: #f0f9ff;
+    }
+  </style>
+</head>
+
+<body class="font-body-md text-on-surface antialiased relative">
+
+  <!-- Ambient Background Accents -->
+  <div class="bg-aurora top-[-10%] left-[-10%]"></div>
+  <div class="bg-aurora top-[25%] right-[-5%]"
+    style="background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, rgba(240,244,249,0) 70%);"></div>
+  <div class="bg-aurora top-[65%] left-[-5%]"
+    style="background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(240,244,249,0) 70%);"></div>
+
+  <!-- Top Navigation Bar -->
+  <nav
+    class="bg-surface-white/85 dark:bg-on-background/85 backdrop-blur-xl rounded-3xl mt-4 mx-auto w-11/12 max-w-7xl sticky top-4 border border-white/70 shadow-lg shadow-primary/10 flex flex-col gap-3 px-6 py-3.5 z-50 transition-all duration-300">
+    <div class="flex justify-between items-center w-full">
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-2 group" href="#">
+        <img alt="MUNDO GADGET Logo"
+          class="h-10 md:h-11 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
+          src="logo.png">
+      </a>
+
+      <!-- Top Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Instagram Link Button (Prominent) -->
+        <a class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 text-white font-button text-[12px] font-bold shadow-md shadow-pink-500/20 hover:shadow-pink-500/35 hover:scale-105 transition-all duration-300"
+          href="https://www.instagram.com/mundogadget_2026?stkn=MXhnZDFrMGV0b293Nw%3D%3D%0A" target="_blank"
+          rel="noopener noreferrer" title="Visita nuestro Instagram">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+          <span class="hidden sm:inline">Instagram</span>
+        </a>
+
+        <!-- Shopping Cart Button with Counter Badge -->
+        <button
+          class="w-10 h-10 rounded-full glass-card relative flex items-center justify-center hover:text-primary transition-colors cursor-pointer"
+          title="Carrito de compras" onclick="openCart()" id="cart-btn">
+          <span class="material-symbols-outlined text-[21px]">shopping_bag</span>
+          <span
+            class="absolute -top-1 -right-1 bg-primary text-white text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center transition-transform"
+            id="cart-counter">0</span>
+        </button>
+
+        <a class="hidden md:inline-flex items-center gap-1.5 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white text-[12px] font-button font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow-md shadow-primary/20 hover:opacity-95 transition-all"
+          href="#catalogo">Ver Catálogo</a>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar border-t border-outline-variant/20">
+      <a class="px-4 py-1.5 rounded-xl bg-on-background text-white text-[12px] font-button font-bold tracking-wider uppercase transition-all whitespace-nowrap shadow-sm"
+        href="#">INICIO</a>
+      <a class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm"
+        href="#destacados">NOVEDADES</a>
+      <button onclick="filterByNav('wearables')"
+        class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm">WEARABLES</button>
+      <button onclick="filterByNav('smarthome')"
+        class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm">SMART
+        HOME</button>
+      <button onclick="filterByNav('audio')"
+        class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm">AUDIO</button>
+      <button onclick="clearFilters()"
+        class="px-4 py-1.5 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-[12px] font-button font-semibold tracking-wider uppercase hover:border-primary hover:text-primary transition-all whitespace-nowrap shadow-sm">TODOS
+        (24)</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-8 pb-8 px-5 md:px-12 max-w-7xl mx-auto" id="destacados">
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="font-headline-xl text-[26px] md:text-[32px] font-bold tracking-tight text-on-background uppercase">
+        DESCUBRE</h2>
+      <span class="font-label-sm text-[12px] text-primary tracking-wider uppercase font-semibold">Edición Oficial
+        2024</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Banner 1: Cyber Mech Ultra -->
+      <div
+        class="lg:col-span-6 rounded-3xl relative overflow-hidden p-8 flex flex-col justify-between min-h-[280px] shadow-lg shadow-primary/10 border border-white/80 group"
+        style="background: linear-gradient(135deg, #0f172a 0%, #0284c7 65%, #38bdf8 100%);">
+        <div class="absolute -right-6 -bottom-6 w-56 h-56 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex items-start justify-between z-10">
+          <span
+            class="font-label-sm text-[11px] font-bold text-white/90 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">Novedad</span>
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-300"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-sky-300"></span>
+          </div>
+        </div>
+        <div class="my-auto py-2 flex items-center justify-center z-10">
+          <img alt="Nexus Chrono X"
+            class="h-36 md:h-40 w-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy">
+        </div>
+        <div class="z-10 text-center">
+          <h3
+            class="font-headline-lg text-[22px] md:text-[24px] font-bold text-white uppercase tracking-wider leading-tight">
+            NEXUS CHRONO X</h3>
+          <p class="font-label-sm text-[12px] text-white/85 tracking-widest uppercase mt-1">Pantalla Holográfica •
+            Sensores Biométricos • OLED</p>
+        </div>
+      </div>
+
+      <!-- Banner 2: Future Tech Collection -->
+      <div
+        class="lg:col-span-6 rounded-3xl relative overflow-hidden p-8 flex flex-col justify-between min-h-[280px] shadow-lg shadow-primary/10 border border-white/80 group"
+        style="background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 60%, #0369a1 100%);">
+        <div class="z-10 max-w-sm">
+          <span
+            class="font-label-sm text-[11px] font-bold text-amber-300 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-amber-300/30">Experiencia
+            Premium</span>
+          <h3
+            class="font-headline-xl text-[24px] md:text-[28px] font-bold text-white uppercase tracking-tight leading-snug mt-3">
+            EL PODER DE LA TECNOLOGÍA DEL FUTURO</h3>
+          <p class="font-body-md text-[13px] text-white/90 mt-2 leading-relaxed">Dispositivos de alto rendimiento
+            diseñados para transformar tu espacio de trabajo y vida cotidiana.</p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 z-10">
+          <a class="bg-white text-on-background px-6 py-2.5 rounded-xl font-button text-[12px] font-bold uppercase tracking-wider shadow-lg hover:bg-surface-white hover:scale-105 transition-all text-center"
+            href="#catalogo">COMPRAR AHORA</a>
+          <a class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-6 py-2.5 rounded-xl font-button text-[12px] font-bold uppercase tracking-wider hover:bg-white/30 transition-all text-center"
+            href="#catalogo">VER CATÁLOGO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gadget Pillars Bar -->
+  <section class="py-5 overflow-hidden max-w-7xl mx-auto px-5 md:px-12">
+    <div
+      class="flex items-center justify-around flex-wrap gap-6 py-4 border-y border-outline-variant/30 text-on-surface-variant font-headline-lg font-bold tracking-wider text-[14px] md:text-[17px]">
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">memory</span>
+        <span>TECNOLOGÍA</span>
+      </div>
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">accessibility_new</span>
+        <span>ERGONOMÍA</span>
+      </div>
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">home_iot_device</span>
+        <span>DOMÓTICA</span>
+      </div>
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">headphones</span>
+        <span>AUDIO SMART</span>
+      </div>
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">hub</span>
+        <span>CONECTIVIDAD</span>
+      </div>
+      <div class="flex items-center gap-2 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-primary">bolt</span>
+        <span>INNOVACIÓN</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section with Sidebar Filters -->
+  <section class="py-12 px-5 md:px-12 max-w-7xl mx-auto relative z-20" id="catalogo">
+    <!-- Section Header in Spanish -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <h2 class="font-headline-xl text-[26px] md:text-[32px] font-bold tracking-tight text-on-background uppercase">
+          GADGETS DESTACADOS</h2>
+        <p class="font-body-md text-sm text-on-surface-variant mt-1" id="section-subtitle">Mostrando 24 resultados para
+          Gadgets</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <label class="font-label-sm text-[12px] text-on-surface-variant uppercase font-semibold"
+          for="sort-select">Ordenar por:</label>
+        <select
+          class="bg-white rounded-full px-4 py-2 text-[13px] font-button text-on-surface border border-outline-variant/40 shadow-sm focus:ring-primary focus:border-primary outline-none cursor-pointer"
+          id="sort-select" onchange="sortProducts(this.value)">
+          <option value="featured">Destacados</option>
+          <option value="price-low">Precio: Menor a Mayor</option>
+          <option value="price-high">Precio: Mayor a Menor</option>
+          <option value="name">Nombre (A-Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Layout: Sidebar + Grid -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Filter Sidebar (EXACT match to user uploaded design media_1790727738894.png) -->
+      <aside class="w-full lg:w-[270px] lg:min-w-[270px] shrink-0">
+        <div class="bg-white rounded-[28px] p-7 shadow-sm border border-slate-200/90 sticky top-28">
+          <h3 class="font-headline-lg text-[22px] font-bold text-[#0f172a] mb-6">Filtros</h3>
+
+          <!-- Categoría Filter -->
+          <div class="mb-7">
+            <h4 class="font-headline-lg text-[15px] font-bold text-[#0f172a] mb-3">Categoría</h4>
+            <div class="flex flex-col gap-3" id="category-filter-group">
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="radio" name="cat" value="wearables" id="cat-wearables" class="filter-radio hidden"
+                  onchange="applyFilters()">
+                <span class="custom-radio-circle"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">Wearables
+                  (8)</span>
+              </label>
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="radio" name="cat" value="smarthome" id="cat-smarthome" class="filter-radio hidden"
+                  onchange="applyFilters()">
+                <span class="custom-radio-circle"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">Smart
+                  Home (12)</span>
+              </label>
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="radio" name="cat" value="audio" id="cat-audio" class="filter-radio hidden"
+                  onchange="applyFilters()">
+                <span class="custom-radio-circle"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">Audio
+                  (4)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Precio Filter -->
+          <div class="mb-7">
+            <h4 class="font-headline-lg text-[15px] font-bold text-[#0f172a] mb-3">Precio</h4>
+            <div class="space-y-3">
+              <input type="range" class="price-slider-custom" id="price-slider" min="0" max="1000" value="1000"
+                step="10" oninput="updatePriceSlider(this); applyFilters();">
+              <div class="flex justify-between items-center font-label-sm text-[13px] text-slate-500">
+                <span>$0</span>
+                <span id="price-indicator" class="font-bold text-primary">$1,000+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marca Filter -->
+          <div class="mb-8">
+            <h4 class="font-headline-lg text-[15px] font-bold text-[#0f172a] mb-3">Marca</h4>
+            <div class="flex flex-col gap-3">
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="checkbox" value="nexus" class="filter-checkbox hidden" onchange="applyFilters()">
+                <span class="custom-check-box"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">Nexus
+                  (5)</span>
+              </label>
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="checkbox" value="auratech" class="filter-checkbox hidden" onchange="applyFilters()">
+                <span class="custom-check-box"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">AuraTech
+                  (9)</span>
+              </label>
+              <label class="cursor-pointer flex items-center gap-3 group">
+                <input type="checkbox" value="pulse" class="filter-checkbox hidden" onchange="applyFilters()">
+                <span class="custom-check-box"></span>
+                <span
+                  class="filter-label-text font-body-md text-[15px] text-[#334155] group-hover:text-primary transition-colors">Pulse
+                  (10)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Limpiar Filtros -->
+          <button type="button"
+            class="w-full text-left font-headline-lg text-[15px] font-bold text-[#0f172a] hover:text-primary transition-colors cursor-pointer"
+            onclick="clearFilters()">
+            Limpiar filtros
+          </button>
+        </div>
+      </aside>
+
+      <!-- Product Grid (24 Products matching 8 Wearables, 12 Smart Home, 4 Audio | 5 Nexus, 9 AuraTech, 10 Pulse) -->
+      <div class="flex-1">
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6" id="product-grid">
+
+          <!-- ==================== WEARABLES (8 items) ==================== -->
+          <!-- 1. Nexus Chrono X -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="nexus" data-price="299" data-name="Nexus Chrono X">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy"
+                alt="Nexus Chrono X">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Wearable</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">OLED</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Nexus Chrono X</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Smartwatch con pantalla
+                holográfica y sensores biométricos avanzados.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$299.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p1', 'Nexus Chrono X', 299, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Quantum Watch Pro -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="nexus" data-price="279" data-name="Quantum Watch Pro">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl"
+                alt="Quantum Watch Pro">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">GPS</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Titanio</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Quantum Watch Pro
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Monitor de salud continuo con
+                ECG y resistencia al agua 50m.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$279.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p2', 'Quantum Watch Pro', 279, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Pulse Band Elite -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="pulse" data-price="149" data-name="Pulse Band Elite">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy"
+                alt="Pulse Band Elite">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Fitness</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">14
+                  Días Bat</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Band Elite
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Pulsera inteligente ultra
+                ligera para monitoreo deportivo y de sueño.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$149.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p3', 'Pulse Band Elite', 149, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Nexus Fit Track -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="nexus" data-price="199" data-name="Nexus Fit Track">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl"
+                alt="Nexus Fit Track">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Salud</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">SpO2</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Nexus Fit Track</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Sensor biométrico avanzado de
+                frecuencia cardíaca y oxigenación.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$199.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p4', 'Nexus Fit Track', 199, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Pulse Ring Horizon -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="pulse" data-price="219" data-name="Pulse Ring Horizon">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy"
+                alt="Pulse Ring Horizon">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-purple-500/10 text-purple-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Smart
+                  Ring</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Cerámica</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Ring Horizon
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Anillo inteligente discreto
+                para medición de temperatura y sueño.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$219.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p5', 'Pulse Ring Horizon', 219, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Nexus Aero Glass -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="nexus" data-price="349" data-name="Nexus Aero Glass">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl"
+                alt="Nexus Aero Glass">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-sky-500/10 text-sky-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">AR
+                  Glass</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">MicroLED</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Nexus Aero Glass
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Gafas inteligentes con display
+                Heads-Up y asistente integrado.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$349.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p6', 'Nexus Aero Glass', 349, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Pulse Pro Sensor -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="pulse" data-price="129" data-name="Pulse Pro Sensor">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy"
+                alt="Pulse Pro Sensor">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Atleta</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Bluetooth</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Pro Sensor
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Banda torácica para métricas de
+                alto rendimiento y VO2 max.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$129.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p7', 'Pulse Pro Sensor', 129, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj71U0XGz47XARUAfNWQDu-2keueZ4Yy8mFy5iGLgDGg702min5CSSyBNkNUddmnQGgEg_7ojy-bEAQ-I1fzMgKiC3Zt5GzxzUD6nyfvh86WS8ug6K8kZDOycVMhxjY-qEicmWWpo8r4KXjVu_AxP_wVK7W_gtXYPPHHZ47y9GpKBJlRDHP90rS5FK6l4QfDGtfCGDoU2pQk8jZxIAdO13ZT9fh4gKEAS_Guz1LCnaTSLhs6YBQy')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Nexus Ultra Chrono -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="wearables" data-brand="nexus" data-price="399" data-name="Nexus Ultra Chrono">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl"
+                alt="Nexus Ultra Chrono">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-amber-500/10 text-amber-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Edición
+                  Pro</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Zafiro</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Nexus Ultra Chrono
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Cristal de zafiro irrompible
+                con conectividad satelital de emergencia.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$399.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p8', 'Nexus Ultra Chrono', 399, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDR-Jun3Cw6pWwqQN-srWZLDHvBZFlTUZxY4PKo7NWsjb54xpDgvorVAZk_Ov0BJpaS3E40WLILRyW4908DZl8lwF5RvUoB8vZgkxrAvL1nfMjrWW-Y0krq0JjasO0jmzkaPSIFXHlm6REaeIoQAcdWkR33__Ux4eL46VCSEOaM3pjdnYsTqbRV5UnLG41OuTKsdQIN7zuNcYrJ0WiVxRBMgC-4xyTVDk5sa8q-OfAIpRRFZBqn-Gwl')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== SMART HOME (12 items) ==================== -->
+          <!-- 9. Omni Core Hub -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="pulse" data-price="349" data-name="Omni Core Hub">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Omni Core Hub">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Smart
+                  Home</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">IA
+                  Hub</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Omni Core Hub</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Centro de control inteligente
+                con IA predictiva para automatización total.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$349.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p9', 'Omni Core Hub', 349, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Lumina Beam 4K -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="599" data-name="Lumina Beam 4K">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Lumina Beam 4K">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Proyector</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">4K
+                  Nativo</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Lumina Beam 4K</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Proyector portátil láser ultra
+                compacto para cine en casa inmersivo.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$599.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p10', 'Lumina Beam 4K', 599, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Aura Vision Cam -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="229" data-name="Aura Vision Cam">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Aura Vision Cam">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Seguridad</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">360°
+                  IA</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Vision Cam</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Cámara de seguridad panorámica
+                con visión nocturna infrarroja.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$229.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p11', 'Aura Vision Cam', 229, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. Aura Glow Lamp -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="89" data-name="Aura Glow Lamp">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Aura Glow Lamp">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Iluminación</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">RGB
+                  16M</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Glow Lamp</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Lámpara inteligente con
+                sincronización musical y control táctil.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$89.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p12', 'Aura Glow Lamp', 89, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13. Pulse Thermo Sense -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="pulse" data-price="119" data-name="Pulse Thermo Sense">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Pulse Thermo Sense">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Clima</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Ahorro</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Thermo Sense
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Termostato conectado de bajo
+                consumo con autoajuste inteligente.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$119.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p13', 'Pulse Thermo Sense', 119, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. Aura Clean Robot -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="459" data-name="Aura Clean Robot">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Aura Clean Robot">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Robot</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">LiDAR</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Clean Robot
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Robot aspirador y friegasuelos
+                con mapeo láser 3D en tiempo real.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$459.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p14', 'Aura Clean Robot', 459, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. Pulse Smart Plug 4X -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="pulse" data-price="49" data-name="Pulse Smart Plug 4X">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Pulse Smart Plug 4X">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Energía</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Wi-Fi</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Smart Plug 4X
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Pack de 4 enchufes programables
+                con medidor de consumo eléctrico.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$49.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p15', 'Pulse Smart Plug 4X', 49, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 16. Aura Lock Touch -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="199" data-name="Aura Lock Touch">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Aura Lock Touch">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Cerradura</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Biométrica</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Lock Touch</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Cerradura digital inteligente
+                con huella dactilar, clave y NFC.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$199.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p16', 'Aura Lock Touch', 199, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17. Aura Air Pure -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="289" data-name="Aura Air Pure">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Aura Air Pure">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Aire
+                  Limpio</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">HEPA
+                  13</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Air Pure</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Purificador inteligente que
+                elimina 99.97% de partículas y alérgenos.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$289.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p17', 'Aura Air Pure', 289, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 18. Pulse Switch Matrix -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="pulse" data-price="79" data-name="Pulse Switch Matrix">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Pulse Switch Matrix">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Domótica</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Táctil</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Switch Matrix
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Interruptor de pared táctil de
+                cristal con integración Zigbee.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$79.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p18', 'Pulse Switch Matrix', 79, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 19. Aura Sensor Motion -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="59" data-name="Aura Sensor Motion">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK"
+                alt="Aura Sensor Motion">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Sensores</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">PIR</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Sensor Motion
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Pack de detectores de
+                movimiento y apertura de puertas/ventanas.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$59.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p19', 'Aura Sensor Motion', 59, 'https://lh3.googleusercontent.com/aida-public/AB6AXuByumKHdS28kRGumVIIyxr_qQNiiCZzrp4um9kIPJS5hY7BURQbcIYoC71tQxO7d82_C2ZWLPDs8yRxziXx09pilXb9TGHo_PJJxLZyLcsock7FMOOQUpShv4ms7RlWVXBoYXm_MJtSo7PwXno88L6iJ4zbnjfDYIQd3y8LKEE8a5VdHuMQ0Q2mHXF2eVw1oqX70o6ZSzkeFlByKff3bAFn4zVsWcHcl3zeH9IdSTtamzJx9aqTO9CK')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 20. Aura Sound Bar Sync -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="smarthome" data-brand="auratech" data-price="319" data-name="Aura Sound Bar Sync">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA"
+                alt="Aura Sound Bar Sync">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Dolby
+                  Atmos</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">3.1
+                  Ch</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Sound Bar Sync
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Barra de sonido envolvente con
+                subwoofer inalámbrico y audio 3D.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$319.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p20', 'Aura Sound Bar Sync', 319, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHXlSk4skbOUzQ6k0aCzv5LNvUL1DNyzEEvgcrxTiLAIglKjaEY7WScBiEfeEnFbj040qBaOnSsNDSnpOrW96zhk9K18oH0DDf0jchdbD3aNcz_M8DgRWSqxLW0ak5c9XMdtwnMNBQXFzp8HZMWb4Ineype2KNOFoNjSiT5qlylAp3O-Qpf6RNOGqR39LFX2PiOjIkQyV7kKRXVqgvxvRrDWE_qIoHHBT9Y6IIiCeXQ_h7gdOdIlpA')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== AUDIO (4 items) ==================== -->
+          <!-- 21. Aura Buds Pro -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="audio" data-brand="auratech" data-price="189" data-name="Aura Buds Pro">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r"
+                alt="Aura Buds Pro">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Audio</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">ANC
+                  Pro</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Aura Buds Pro</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Auriculares transparentes con
+                cancelación activa de ruido adaptativa.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$189.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p21', 'Aura Buds Pro', 189, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 22. AeroBuds Ultra -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="audio" data-brand="pulse" data-price="149" data-name="AeroBuds Ultra">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u"
+                alt="AeroBuds Ultra">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Ergonómico</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Hi-Fi</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">AeroBuds Ultra</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Graves profundos con diafragmas
+                de grafeno y estuche de carga Qi.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$149.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p22', 'AeroBuds Ultra', 149, 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 23. Pulse Bass Studio -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="audio" data-brand="pulse" data-price="249" data-name="Pulse Bass Studio">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r"
+                alt="Pulse Bass Studio">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Over-Ear</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Hi-Res</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Bass Studio
+              </h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Audífonos de estudio con
+                almohadillas viscoelásticas y audio espacial.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$249.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p23', 'Pulse Bass Studio', 249, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAG9KKWfxcl_NH9F4ezvnPI3OBfHlElpsh4hjmUwXRH6dx5355pJ7fSk2ct2DJvjIQjOWvFyjuAFfB5ByiAvh2dvLFeFT1_ikZ8wuv_Mo94JOoWTEMFamUYhmWHUcYEzp2Gm6Kcb6IRnBD82N3ELwcVb4r-LiIYtEE0i-P3aaLQufrjSWtTjblvPKub6jWL_bP-kiRCdX89Oz7rmaLaPoYOxXQ3SBwdQTngk7eJeJAABhmSmB0Dfp7r')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 24. Pulse Sound Max -->
+          <div
+            class="product-card show-card glass-card rounded-2xl p-5 flex flex-col group relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            data-category="audio" data-brand="pulse" data-price="179" data-name="Pulse Sound Max">
+            <div class="absolute top-4 right-4 z-10">
+              <button
+                class="p-2 bg-white/80 rounded-full backdrop-blur-sm hover:text-rose-500 transition-colors shadow-sm"
+                onclick="toggleWishlist(this)" title="Favorito">
+                <span class="material-symbols-outlined text-[18px] text-outline">favorite</span>
+              </button>
+            </div>
+            <div
+              class="h-56 w-full mb-3 relative rounded-xl flex items-center justify-center overflow-hidden bg-surface-bright/80">
+              <img
+                class="object-contain h-4/5 w-4/5 transition-transform duration-500 group-hover:scale-110 drop-shadow-xl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u"
+                alt="Pulse Sound Max">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <div class="flex gap-2 mb-2">
+                <span
+                  class="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">Altavoz</span>
+                <span
+                  class="px-2.5 py-0.5 bg-slate-100 text-slate-600 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-wider">IPX7</span>
+              </div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-surface mb-1 leading-tight">Pulse Sound Max</h3>
+              <p class="font-body-md text-[13px] text-on-surface-variant mb-4 flex-grow">Parlante impermeable para
+                exteriores con 24 horas de reproducción.</p>
+              <div class="flex items-center justify-between mt-auto pt-2 border-t border-outline-variant/20">
+                <span class="font-headline-lg text-[22px] font-bold text-primary">$179.00</span>
+                <button
+                  class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-xl flex items-center gap-1.5 font-button text-[12px] font-bold uppercase tracking-wider shadow-md shadow-primary/20 hover:scale-105 transition-all"
+                  onclick="addToCart('p24', 'Pulse Sound Max', 179, 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_oXvE6_3as4wOS2BLIZHzBKqyhYttRDAXGDcjLMvZJdYUT_OJA5khP5GKtpvf1hYSf36naKCgAaZG0Uo0U_6PTMGL_2xLY0wXkJW9GF6mB7tkDLuj9cYq_wLNlLfpZ-0c39ktX_wNHSiZY2I-1zLocup2FT80YB38elOH-Amej1aKTwaib5mmttk26gT6h8v1hsgMB28cVelPPSzFXs75fnOcX6-biiAOkd7S2oH-RVznveXNmv0u')">
+                  <span class="material-symbols-outlined text-[17px]">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- No Results Message -->
+        <div
+          class="hidden flex-col items-center justify-center py-20 text-center bg-white rounded-3xl border border-dashed border-outline-variant/40 mt-6"
+          id="no-results">
+          <span class="material-symbols-outlined text-[54px] text-outline/40 mb-3">search_off</span>
+          <h4 class="font-headline-lg text-[18px] font-bold text-on-surface">No se encontraron productos</h4>
+          <p class="font-body-md text-[14px] text-outline mt-1 mb-4">Intenta ajustar o reiniciar los filtros de búsqueda
+          </p>
+          <button
+            class="px-5 py-2.5 bg-primary text-white rounded-xl font-button text-[12px] font-bold uppercase tracking-wider hover:bg-primary-hover transition-all"
+            onclick="clearFilters()">Restablecer Filtros</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Features Banner -->
+    <div
+      class="mt-16 rounded-3xl glass-card p-8 border border-white/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0"><span
+            class="material-symbols-outlined text-[24px]">verified_user</span></div>
+        <div>
+          <h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Garantía Oficial</h4>
+          <p class="font-body-md text-[13px] text-on-surface-variant">12 meses de cobertura total</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0"><span
+            class="material-symbols-outlined text-[24px]">local_shipping</span></div>
+        <div>
+          <h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Envío Express</h4>
+          <p class="font-body-md text-[13px] text-on-surface-variant">24-48h a todo el país</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0"><span
+            class="material-symbols-outlined text-[24px]">lock</span></div>
+        <div>
+          <h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Pago Seguro</h4>
+          <p class="font-body-md text-[13px] text-on-surface-variant">Tarjetas, PSE, Nequi y Cripto</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0"><span
+            class="material-symbols-outlined text-[24px]">support_agent</span></div>
+        <div>
+          <h4 class="font-headline-lg text-[15px] font-bold text-on-surface">Soporte 24/7</h4>
+          <p class="font-body-md text-[13px] text-on-surface-variant">Asesoría técnica en línea</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim dark:bg-inverse-surface w-full pt-14 pb-12 border-t border-outline-variant/30 mt-16">
+    <div class="max-w-7xl mx-auto px-5 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col gap-4">
+        <a class="flex items-center gap-2 group w-fit" href="#">
+          <img alt="MUNDO GADGET Logo"
+            class="h-10 w-auto object-contain mix-blend-multiply bg-white/90 p-1.5 rounded-xl border border-outline-variant/30 shadow-sm"
+            src="logo.png">
+        </a>
+        <p class="font-body-md text-[13px] text-on-surface-variant">El futuro de la tecnología en tus manos. Innovación,
+          calidad y garantía.</p>
+        <p class="font-label-sm text-[12px] text-outline">© 2024 MUNDO GADGET.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="font-headline-lg text-[14px] font-bold text-on-surface uppercase mb-1">Explorar</span>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#catalogo" onclick="filterByNav('wearables')">Wearables</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#catalogo" onclick="filterByNav('smarthome')">Smart Home</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#catalogo" onclick="filterByNav('audio')">Audio</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#catalogo" onclick="clearFilters()">Todos los Productos</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="font-headline-lg text-[14px] font-bold text-on-surface uppercase mb-1">Información</span>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#">Términos y Condiciones</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#">Política de Privacidad</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#">Garantías y Envíos</a>
+        <a class="font-body-md text-[13px] text-on-surface-variant hover:text-primary transition-colors"
+          href="#">Preguntas Frecuentes</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="font-headline-lg text-[14px] font-bold text-on-surface uppercase mb-1">Comunidad</span>
+        <p class="font-body-md text-[13px] text-on-surface-variant">Síguenos en redes sociales para ver lanzamientos y
+          promociones exclusivas:</p>
+        <a class="group flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-orange-400 text-white font-button text-[12px] font-bold uppercase tracking-wider shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 hover:scale-105 transition-all duration-300 w-fit"
+          href="https://www.instagram.com/mundogadget_2026?stkn=MXhnZDFrMGV0b293Nw%3D%3D%0A" target="_blank"
+          rel="noopener noreferrer">
+          <svg class="w-5 h-5 fill-current transition-transform duration-300 group-hover:rotate-12" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+          <span>@mundogadget_2026</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SHOPPING CART DRAWER ========== -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="flex items-center justify-between p-6 border-b border-outline-variant/20 bg-white">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+        </span>
+        <h3 class="font-headline-lg text-[18px] font-bold text-on-background">Tu Carrito</h3>
+        <span class="bg-primary text-white text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center"
+          id="cart-drawer-count">0</span>
+      </div>
+      <button
+        class="w-8 h-8 rounded-full bg-surface-gray/60 flex items-center justify-center hover:bg-surface-gray transition-colors cursor-pointer"
+        onclick="closeCart()">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Cart Items List Container -->
+    <div class="flex-1 overflow-y-auto p-5" id="cart-items-container">
+      <div class="flex flex-col items-center justify-center py-16 text-center" id="cart-empty">
+        <span class="material-symbols-outlined text-[54px] text-outline/30 mb-3">shopping_cart</span>
+        <p class="font-headline-lg text-[16px] font-bold text-on-surface">Tu carrito está vacío</p>
+        <p class="font-body-md text-[13px] text-outline mt-1 mb-4">Añade productos para comenzar tu compra</p>
+        <button
+          class="px-5 py-2.5 bg-primary text-white rounded-xl font-button text-[12px] font-bold uppercase tracking-wider hover:bg-primary-hover transition-all"
+          onclick="closeCart()">Ver Catálogo</button>
+      </div>
+      <div class="flex flex-col gap-3" id="cart-items-list"></div>
+    </div>
+
+    <!-- Cart Footer -->
+    <div class="border-t border-outline-variant/20 p-6 bg-white" id="cart-footer" style="display:none;">
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-body-md text-[14px] text-on-surface-variant">Subtotal</span>
+        <span class="font-headline-lg text-[14px] font-bold text-on-surface-variant" id="cart-subtotal">$0.00</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="font-headline-lg text-[16px] font-bold text-on-background">Total</span>
+        <span class="font-headline-lg text-[22px] font-bold text-gradient" id="cart-total">$0.00</span>
+      </div>
+      <button
+        class="w-full py-3.5 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white rounded-2xl font-button text-[13px] font-bold uppercase tracking-wider shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-2 cursor-pointer"
+        onclick="openCheckout()">
+        <span class="material-symbols-outlined text-[19px]">credit_card</span>
+        Proceder al Pago
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== CHECKOUT MODAL ========== -->
+  <div class="checkout-overlay" id="checkout-overlay">
+    <div class="checkout-modal" id="checkout-modal">
+      <!-- Step 1: Form -->
+      <div id="checkout-form-step">
+        <div class="flex items-center justify-between p-6 border-b border-outline-variant/20">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[22px]">receipt_long</span>
+            </span>
+            <div>
+              <h3 class="font-headline-lg text-[18px] font-bold text-on-background">Finalizar Compra</h3>
+              <p class="font-body-md text-[12px] text-outline">Completa tus datos de envío y pago</p>
+            </div>
+          </div>
+          <button
+            class="w-8 h-8 rounded-full bg-surface-gray/60 flex items-center justify-center hover:bg-surface-gray transition-colors cursor-pointer"
+            onclick="closeCheckout()">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+
+        <!-- Order Summary Card -->
+        <div class="px-6 pt-5 pb-3">
+          <div class="bg-surface-bright rounded-2xl p-4 border border-outline-variant/20">
+            <h4 class="font-button text-[12px] font-bold text-on-surface-variant uppercase tracking-wider mb-2.5">
+              Resumen de Compra</h4>
+            <div class="flex flex-col gap-2 max-h-32 overflow-y-auto pr-1" id="checkout-items-summary"></div>
+            <div class="border-t border-outline-variant/20 mt-3 pt-2.5 flex justify-between items-center">
+              <span class="font-headline-lg text-[14px] font-bold text-on-background">Total a Pagar</span>
+              <span class="font-headline-lg text-[18px] font-bold text-gradient" id="checkout-total">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="px-6 pb-6 pt-2 flex flex-col gap-3.5" id="checkout-form" onsubmit="submitOrder(event)">
+          <div>
+            <label
+              class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Nombre
+              completo *</label>
+            <input type="text" class="checkout-input" placeholder="Ej. Carlos Rodríguez" required id="checkout-name">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label
+                class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Email
+                *</label>
+              <input type="email" class="checkout-input" placeholder="carlos@email.com" required id="checkout-email">
+            </div>
+            <div>
+              <label
+                class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Teléfono
+                / WhatsApp *</label>
+              <input type="tel" class="checkout-input" placeholder="+57 300 123 4567" required id="checkout-phone">
+            </div>
+          </div>
+          <div>
+            <label
+              class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Dirección
+              de entrega *</label>
+            <input type="text" class="checkout-input" placeholder="Carrera 15 #85-20, Apto 402" required
+              id="checkout-address">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label
+                class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Ciudad
+                *</label>
+              <input type="text" class="checkout-input" placeholder="Bogotá, D.C." required id="checkout-city">
+            </div>
+            <div>
+              <label
+                class="font-button text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 block">Método
+                de Pago *</label>
+              <select class="checkout-input" required id="checkout-payment">
+                <option value="">Seleccionar...</option>
+                <option value="tarjeta">💳 Tarjeta Débito / Crédito</option>
+                <option value="pse">🏦 PSE Bancos</option>
+                <option value="nequi">📱 Nequi</option>
+                <option value="daviplata">📱 Daviplata</option>
+                <option value="crypto">₿ Criptomonedas (USDT/BTC)</option>
+                <option value="contraentrega">💵 Pago Contra Entrega</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit"
+            class="w-full py-3.5 bg-gradient-to-r from-accent-gradient-start to-accent-gradient-end text-white rounded-2xl font-button text-[13px] font-bold uppercase tracking-wider shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer">
+            <span class="material-symbols-outlined text-[19px]">lock</span>
+            Confirmar y Realizar Pago
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Success Screen -->
+      <div class="hidden" id="checkout-success-step">
+        <div class="flex flex-col items-center justify-center py-14 px-8 text-center">
+          <div
+            class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 animate-bounce">
+            <span class="material-symbols-outlined text-[42px]">check_circle</span>
+          </div>
+          <h3 class="font-headline-xl text-[24px] font-bold text-on-background mb-1">¡Compra Exitosa!</h3>
+          <p class="font-body-md text-[14px] text-on-surface-variant mb-1">Tu pedido ha sido procesado correctamente.
+          </p>
+          <p class="font-body-md text-[13px] text-outline mb-6">Número de orden: <span class="font-bold text-primary"
+              id="order-number">#MG-829104</span></p>
+
+          <div
+            class="bg-surface-bright rounded-2xl p-4 border border-outline-variant/20 w-full max-w-sm mb-6 text-left space-y-2.5">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[19px] text-primary">local_shipping</span>
+              <span class="font-body-md text-[13px] font-bold text-on-surface">Envío Express: 24 - 48 horas</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[19px] text-primary">mail</span>
+              <span class="font-body-md text-[13px] text-on-surface-variant">Detalles enviados a tu correo
+                electrónico</span>
+            </div>
+          </div>
+
+          <button
+            class="px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-2xl font-button text-[12px] font-bold uppercase tracking-wider transition-all cursor-pointer"
+            onclick="closeCheckout(); closeCart();">
+            Seguir Comprando
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Feedback Toast -->
+  <div
+    class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none glass-card bg-white px-5 py-3 rounded-2xl shadow-xl border border-primary/30 flex items-center gap-3"
+    id="toast-message">
+    <span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+      <span class="material-symbols-outlined text-[17px]">check_circle</span>
+    </span>
+    <span class="font-button text-[13px] text-on-surface" id="toast-text">Producto añadido</span>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ===== CART STATE =====
+    let cart = [];
+
+    // Currency formatting ($299.00)
+    function formatUSD(amount) {
+      return '$' + amount.toFixed(2);
+    }
+
+    // ===== FILTERING LOGIC =====
+    function applyFilters() {
+      const selectedRadio = document.querySelector('input[name="cat"]:checked');
+      const selectedCat = selectedRadio ? selectedRadio.value : null;
+      const maxPrice = parseFloat(document.getElementById('price-slider').value);
+      const checkedBrands = [...document.querySelectorAll('.filter-checkbox:checked')].map(cb => cb.value);
+
+      const cards = document.querySelectorAll('.product-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        const cardBrand = card.getAttribute('data-brand') || '';
+        const cardPrice = parseFloat(card.getAttribute('data-price')) || 0;
+
+        const matchCat = !selectedCat || cardCat === selectedCat;
+        const matchPrice = cardPrice <= maxPrice;
+        const matchBrand = checkedBrands.length === 0 || checkedBrands.includes(cardBrand);
+
+        if (matchCat && matchPrice && matchBrand) {
+          card.classList.remove('hidden-card');
+          card.classList.add('show-card');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden-card');
+          card.classList.remove('show-card');
+        }
+      });
+
+      // Update results label
+      const subtitle = document.getElementById('section-subtitle');
+      if (subtitle) {
+        subtitle.textContent = `Mostrando ${visibleCount} ${visibleCount === 1 ? 'resultado' : 'resultados'} para Gadgets`;
+      }
+
+      // Toggle No-results message
+      const noResults = document.getElementById('no-results');
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'flex' : 'none';
+      }
+    }
+
+    // Update Price Slider UI Track & Value
+    function updatePriceSlider(slider) {
+      const val = parseFloat(slider.value);
+      const max = parseFloat(slider.max);
+      const pct = (val / max) * 100;
+      slider.style.background = `linear-gradient(to right, #0284C7 0%, #0284C7 ${pct}%, #e2e8f0 ${pct}%, #e2e8f0 100%)`;
+      document.getElementById('price-indicator').textContent = val >= 1000 ? '$1,000+' : formatUSD(val);
+    }
+
+    // Quick filter from Nav Bar
+    function filterByNav(category) {
+      // Deselect checkboxes
+      document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
+      // Select matching radio
+      const targetRadio = document.querySelector(`input[name="cat"][value="${category}"]`);
+      if (targetRadio) {
+        targetRadio.checked = true;
+      }
+      applyFilters();
+      const catalogEl = document.getElementById('catalogo');
+      if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Clear all filters
+    function clearFilters() {
+      document.querySelectorAll('input[name="cat"]').forEach(r => r.checked = false);
+      document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
+      const slider = document.getElementById('price-slider');
+      slider.value = 1000;
+      updatePriceSlider(slider);
+      applyFilters();
+      showToast('Filtros restablecidos');
+    }
+
+    // Radio button click: allow deselecting on second click
+    document.querySelectorAll('.filter-radio').forEach(radio => {
+      radio.addEventListener('click', function (e) {
+        if (this.dataset.wasChecked === 'true') {
+          this.checked = false;
+          this.dataset.wasChecked = 'false';
+          applyFilters();
+        } else {
+          document.querySelectorAll('.filter-radio').forEach(r => r.dataset.wasChecked = 'false');
+          this.dataset.wasChecked = 'true';
+        }
+      });
+    });
+
+    // Sort Products
+    function sortProducts(criteria) {
+      const grid = document.getElementById('product-grid');
+      const cards = [...grid.querySelectorAll('.product-card')];
+
+      cards.sort((a, b) => {
+        const priceA = parseFloat(a.getAttribute('data-price')) || 0;
+        const priceB = parseFloat(b.getAttribute('data-price')) || 0;
+        const nameA = a.getAttribute('data-name') || '';
+        const nameB = b.getAttribute('data-name') || '';
+
+        if (criteria === 'price-low') return priceA - priceB;
+        if (criteria === 'price-high') return priceB - priceA;
+        if (criteria === 'name') return nameA.localeCompare(nameB);
+        return 0; // default
+      });
+
+      cards.forEach(card => grid.appendChild(card));
+    }
+
+    // Wishlist Toggle
+    function toggleWishlist(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isFilled = icon.style.fontVariationSettings && icon.style.fontVariationSettings.includes("'FILL' 1");
+      if (isFilled) {
+        icon.style.fontVariationSettings = "'FILL' 0";
+        icon.classList.remove('text-rose-500');
+        icon.classList.add('text-outline');
+        showToast('Eliminado de favoritos');
+      } else {
+        icon.style.fontVariationSettings = "'FILL' 1";
+        icon.classList.remove('text-outline');
+        icon.classList.add('text-rose-500');
+        showToast('¡Guardado en tus favoritos!');
+      }
+    }
+
+    // ===== SHOPPING CART ACTIONS =====
+    function addToCart(id, name, price, image) {
+      const existing = cart.find(i => i.id === id);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ id, name, price, image, quantity: 1 });
+      }
+      updateCartUI();
+      showToast(`${name} añadido al carrito`);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(i => i.id !== id);
+      updateCartUI();
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        removeFromCart(id);
+        return;
+      }
+      updateCartUI();
+    }
+
+    function getCartTotal() {
+      return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    }
+
+    function getCartCount() {
+      return cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    function updateCartUI() {
+      const count = getCartCount();
+      const total = getCartTotal();
+
+      // Update badge counters
+      document.getElementById('cart-counter').textContent = count;
+      document.getElementById('cart-drawer-count').textContent = count;
+
+      // Pulse badge
+      const badge = document.getElementById('cart-counter');
+      badge.classList.add('scale-125');
+      setTimeout(() => badge.classList.remove('scale-125'), 200);
+
+      const emptyEl = document.getElementById('cart-empty');
+      const listEl = document.getElementById('cart-items-list');
+      const footerEl = document.getElementById('cart-footer');
+
+      if (cart.length === 0) {
+        emptyEl.style.display = 'flex';
+        listEl.innerHTML = '';
+        footerEl.style.display = 'none';
+      } else {
+        emptyEl.style.display = 'none';
+        footerEl.style.display = 'block';
+
+        listEl.innerHTML = cart.map(item => `
+                <div class="flex items-center gap-3 bg-white rounded-2xl p-3 border border-outline-variant/30 shadow-sm">
+                    <div class="w-16 h-16 bg-surface-bright rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+                        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-headline-lg text-[13px] font-bold text-on-background truncate">${item.name}</h4>
+                        <p class="font-label-sm text-[12px] text-primary font-bold mt-0.5">${formatUSD(item.price)}</p>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <div class="flex items-center gap-2">
+                                <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                                <span class="font-button text-[13px] font-bold text-on-background w-5 text-center">${item.quantity}</span>
+                                <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                            </div>
+                            <button class="text-outline hover:text-rose-500 transition-colors cursor-pointer" onclick="removeFromCart('${item.id}')" title="Eliminar">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+        document.getElementById('cart-subtotal').textContent = formatUSD(total);
+        document.getElementById('cart-total').textContent = formatUSD(total);
+      }
+    }
+
+    function openCart() {
+      document.getElementById('cart-overlay').classList.add('active');
+      document.getElementById('cart-drawer').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      document.getElementById('cart-overlay').classList.remove('active');
+      document.getElementById('cart-drawer').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // ===== CHECKOUT PROCESS =====
+    function openCheckout() {
+      if (cart.length === 0) return;
+      closeCart();
+
+      // Populate order summary
+      const summaryEl = document.getElementById('checkout-items-summary');
+      summaryEl.innerHTML = cart.map(item => `
+            <div class="flex justify-between items-center text-[13px]">
+                <span class="font-body-md text-on-surface-variant truncate mr-2">${item.name} × ${item.quantity}</span>
+                <span class="font-button font-bold text-on-surface whitespace-nowrap">${formatUSD(item.price * item.quantity)}</span>
+            </div>
+        `).join('');
+
+      document.getElementById('checkout-total').textContent = formatUSD(getCartTotal());
+
+      // Show form step, hide success step
+      document.getElementById('checkout-form-step').classList.remove('hidden');
+      document.getElementById('checkout-success-step').classList.add('hidden');
+
+      document.getElementById('checkout-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkout-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+
+      // Generate unique order reference
+      const orderNum = '#MG-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('order-number').textContent = orderNum;
+
+      // Transition from Form to Success step
+      document.getElementById('checkout-form-step').classList.add('hidden');
+      document.getElementById('checkout-success-step').classList.remove('hidden');
+
+      // Reset cart
+      cart = [];
+      updateCartUI();
+
+      // Reset form inputs
+      document.getElementById('checkout-form').reset();
+
+      showToast('¡Orden confirmada con éxito! ' + orderNum);
+    }
+
+    // Close checkout when clicking outside modal
+    document.getElementById('checkout-overlay').addEventListener('click', function (e) {
+      if (e.target === this) closeCheckout();
+    });
+
+    // ===== FEEDBACK TOAST =====
+    function showToast(msg) {
+      const toast = document.getElementById('toast-message');
+      const text = document.getElementById('toast-text');
+      if (!toast || !text) return;
+
+      text.textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2400);
+    }
+
+    // Initialize price slider styling on load
+    updatePriceSlider(document.getElementById('price-slider'));
+  </script>
+</body>
+
+</html>
